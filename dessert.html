@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Menu</title>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               background-color: #F7A8C4;
+               margin: 0;
+               padding: 0;
+          }
+
+          .navbar {
+               background-color: #FFEDFA;
+               padding: 15px;
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+          }
+
+          .nav-button {
+               background-color: #F7A8C4;
+               padding: 8px 15px;
+               border-radius: 8px;
+               text-decoration: none;
+               font-weight: bold;
+               color: white;
+               font-size: 16px;
+               transition: background-color 0.3s;
+          }
+
+          .nav-button:hover {
+               background-color: #B8748B;
+          }
+
+          .container {
+               display: flex;
+          }
+
+          h2 {
+               font-family: 'Times New Roman', Times, serif;
+               color: #ad175d;
+               font-size: 35px;
+          }
+
+          h1 {
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
+               color: #ad175d;
+               font-size: 20px;
+          }
+
+          .sidebar {
+               width: 200px;
+               padding: 20px;
+               background-color: #F7A8C4;
+               color: white;
+          }
+
+          .sidebar-heading {
+               font-size: 18px;
+               font-weight: bold;
+               color: #FFEDFA;
+               margin-top: 20px;
+               padding-bottom: 5px;
+               border-bottom: 2px solid #fff;
+               width: 160px;
+          }
+
+          .sidebar ul {
+               list-style: none;
+               padding: 0;
+          }
+
+          .sidebar li {
+               margin: 10px 0;
+          }
+
+          .sidebar a {
+               text-decoration: none;
+               color: #ffffff;
+               font-size: 16px;
+               display: block;
+               padding: 6px 10px;
+               border-radius: 5px;
+               transition: background-color 0.3s;
+          }
+
+          .sidebar a:hover {
+               background-color: #b8748b;
+          }
+
+          .content {
+               flex-grow: 1;
+               padding: 15px;
+               margin-left: 65px;
+          }
+
+          .content-section {
+               padding-top: 10px;
+          }
+
+          .menu {
+               display: flex;
+               flex-wrap: wrap;
+               gap: 20px;
+          }
+
+          .menu-item {
+               background-color: #FFEDFA;
+               padding: 15px;
+               border-radius: 10px;
+               text-align: center;
+               width: 150px;
+               height: 300px;
+               box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+               cursor: pointer;
+               transition: transform 0.3s;
+          }
+
+          .menu-item img {
+               width: 100%;
+               border-radius: 10px;
+               transition: transform 0.3s;
+          }
+
+          .menu-item:hover {
+               transform: scale(1.05);
+          }
+
+          .menu-item:hover img {
+               transform: scale(1.1);
+          }
+
+          .modal {
+               display: none;
+               position: fixed;
+               z-index: 1000;
+               left: 0;
+               top: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.5);
+               justify-content: center;
+               align-items: center;
+          }
+
+          .modal-content {
+               background-color: #fff;
+               margin: 10% auto;
+               padding: 20px;
+               border-radius: 12px;
+               width: 80%;
+               max-width: 500px;
+               text-align: center;
+               position: relative;
+               animation: fadeIn 0.3s ease-in-out;
+          }
+
+          .modal-content img {
+               width: 50%;
+               border-radius: 12px;
+               margin-bottom: 15px;
+          }
+
+          .close {
+               position: absolute;
+               top: 10px;
+               right: 20px;
+               color: #aaa;
+               font-size: 28px;
+               font-weight: bold;
+               cursor: pointer;
+          }
+
+          .close:hover,
+          .close:focus {
+               color: black;
+          }
+
+          .add-to-cart-button {
+               margin-top: 15px;
+               background-color: #d48c9c;
+               color: white;
+               border: none;
+               padding: 15px 24px;
+               border-radius: 8px;
+               cursor: pointer;
+               font-size: 16px;
+               transition: background-color 0.3s;
+          }
+
+          .add-to-cart-button:hover {
+               background-color: #b8748b;
+          }
+
+          @keyframes fadeIn {
+               from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+               }
+
+               to {
+                    opacity: 1;
+                    transform: translateY(0);
+               }
+          }
+
+          .footer-container {
+               background-color: #F7A8C4;
+               padding: 0;
+               width: 100%;
+          }
+
+          .main-footer {
+               background-color: #FFEDFA;
+          }
+
+          .social-section {
+               text-align: center;
+               padding: 20px 0;
+          }
+
+          .social-title {
+               color: #4a332f;
+               font-weight: bold;
+               font-size: 1.2rem;
+               margin-bottom: 15px;
+          }
+
+          .social-icons {
+               display: flex;
+               justify-content: center;
+               gap: 15px;
+          }
+
+          .social-icon {
+               background-color: #F7A8C4;
+               color: white;
+               width: 40px;
+               height: 40px;
+               border-radius: 50%;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-size: 1.2rem;
+               text-decoration: none;
+          }
+
+          .main-footer {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               padding: 20px 10%;
+               border-top: 1px solid #d0d6e0;
+          }
+
+          .company-info {
+               text-align: left;
+          }
+
+          .company-name {
+               font-weight: bold;
+               color: #4a332f;
+               font-size: 1.1rem;
+               margin-bottom: 5px;
+          }
+
+          .company-details {
+               color: #555;
+               font-size: 0.9rem;
+               margin: 3px 0;
+          }
+
+          .company-copyright {
+               color: #555;
+               font-size: 0.9rem;
+          }
+
+          .footer-logo {
+               width: 35px;
+               height: auto;
+          }
+
+          .footer-links {
+               text-align: right;
+          }
+
+          .footer-link {
+               display: block;
+               color: #555;
+               text-decoration: none;
+               margin: 5px 0;
+               font-size: 0.9rem;
+          }
+
+          .footer-link:hover {
+               text-decoration: underline;
+          }
+
+          @media (max-width: 768px) {
+               .main-footer {
+                    flex-direction: column;
+                    text-align: center;
+               }
+
+               .company-info {
+                    text-align: center;
+                    margin-bottom: 20px;
+               }
+
+               .footer-links {
+                    text-align: center;
+                    margin-top: 20px;
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <nav class="navbar">
+          <a href="menu.html" class="nav-button">Menu</a>
+          <a href="homepageproject.html"><img src="logotus.png" alt="LOGO" style="height:65px;border-radius:8px;"> </a>
+          <a href="cart.html" class="social-icon">
+               <i class="fa fa-cart-shopping"></i>
+          </a>
+     </nav>
+     <!-- Nav -->
+     <div class="container">
+          <div class="sidebar">
+               <div class="sidebar-heading">DRINKS</div>
+               <ul>
+                    <li><a href="coffee.html">Coffee</a></li>
+                    <li><a href="frappe.html">Frappé</a></li>
+               </ul>
+
+               <div class="sidebar-heading">FOOD</div>
+               <ul>
+                    <li><a href="pastry.html">Pastry</a></li>
+                    <li><a href="dessert.html">Dessert</a></li>
+               </ul>
+          </div>
+
+          <div class="content">
+               <h1> FOOD </h1>
+               <h2> Dessert </h2>
+               <div class="menu">
+                    <div class="menu-item" onclick="openModal('Nutella Crinkles Cookies')">
+                         <img src="Nuttela Crinkles Cookies.png" alt="Nutella Crinkles Cookies">
+                         <h3> Nutella Crinkles Cookies</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Banana Yakigashi')">
+                         <img src="Banana Yakigashi.png" alt="Banana Yakigashi">
+                         <h3> Banana Yakigashi </h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Chocolate Cheesecake')">
+                         <img src="Chocolate Cheesecake.png" alt="Chocolate Cheesecake">
+                         <h3>Chocolate Cheesecake</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Chocolate Yakigashi')">
+                         <img src="Chocolate Yakigashi.png" alt="Chocolate Yakigashi">
+                         <h3> Chocolate Yakigashi</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Double Chocolate Smores Cookie')">
+                         <img src="Double Chocolate Smores Cookie.png" alt="Double Chocolate Smores Cookie">
+                         <h3> Double Chocolate Smores Cookie </h3>
+                    </div>
+               </div>
+               <div class="content-section">
+                    <div class="menu">
+                         <div class="menu-item" onclick="openModal('Smores Cheesecake')">
+                              <img src="Smores Cheesecake.png" alt="Smores Cheesecake">
+                              <h3> Smores Cheesecake</h3>
+                         </div>
+                         <div class="menu-item" onclick="openModal('Oreo Cookie Cheesecake')">
+                              <img src="Oreo Cookie Cheesecake.png" alt="Oreo Cookie Cheesecake">
+                              <h3>Oreo Cookie Cheesecake</h3>
+                         </div>
+                         <div class="menu-item" onclick="openModal('Chocolate Cake')">
+                              <img src="Chocolate Cake.png" alt="Chocolate Cake">
+                              <h3>Chocolate Cake</h3>
+                         </div>
+                         <div class="menu-item" onclick="openModal('Chocolate Chip Cranberry Almond Cookie')">
+                              <img src="Chocolate Chip Cranberry Almond Cookie.png"
+                                   alt="Chocolate Chip Cranberry Almond Cookie">
+                              <h3> Chocolate Chip Cranberry Almond Cookie</h3>
+                         </div>
+                         <div class="menu-item" onclick="openModal('Blueberry Cheesecake')">
+                              <img src="Blueberry Cheesecake.png" alt="Blueberry Cheesecake">
+                              <h3> Blueberry Cheesecake </h3>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="footer-container">
+          <div class="social-section">
+               <h3 class="social-title">Follow us on</h3>
+               <div class="social-icons">
+                    <a href=https://www.instagram.com/lotuscoffee.ph?igsh=ZzB4ZWxzY2M1MjRr" class="social-icon">
+                         <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61576273525574" class="social-icon">
+                         <i class="fab fa-facebook"></i>
+                    </a>
+               </div>
+          </div>
+
+          <div class="main-footer">
+               <div class="company-info">
+                    <div class="company-name">LOTUS COFFEE PHILIPPINES INC.</div>
+                    <div class="company-details">Company registration no: 635-381-780-00000</div>
+                    <div class="company-copyright">COPYRIGHT 2025 © LOTUS COFFEE</div>
+               </div>
+               <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+               </div>
+          </div>
+     </div>
+
+     <div id="modal" class="modal">
+          <div class="modal-content">
+               <span class="close" onclick="closeModal()">&times;</span>
+               <img id="modal-img" src="" alt="">
+               <h3 id="modal-title"></h3>
+               <p id="modal-description"></p>
+               <p id="modal-price" style="font-weight:bold;"></p>
+               <button class="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+          </div>
+     </div>
+
+     <script>
+          const dessertData = {
+               "Nutella Crinkles Cookies": {
+                    img: "Nuttela Crinkles Cookies.png",
+                    desc: "Soft-baked chocolate cookies with a rich Nutella center, finished with a light powdered sugar crust. Crackly on the outside, gooey on the inside — a chocolate lover’s dream.",
+                    price: "₱70.00"
+               },
+               "Banana Yakigashi": {
+                    img: "Banana Yakigashi.png",
+                    desc: "A delicate Japanese-style baked good with the natural sweetness of ripe bananas, light and fluffy with a golden, toasty crust. Subtly sweet, comforting, and perfect with coffee.",
+                    price: "₱55.00"
+               },
+               "Chocolate Cheesecake": {
+                    img: "Chocolate Cheesecake.png",
+                    desc: "Decadent and dense, this velvety chocolate cheesecake blends rich cocoa with smooth cream cheese on a chocolate biscuit base. Every bite is pure indulgence.",
+                    price: "₱75.00"
+               },
+               "Chocolate Yakigashi": {
+                    img: "Chocolate Yakigashi.png",
+                    desc: "A moist and tender Japanese-style chocolate cake with a toasted crust, rich in cocoa and subtle sweetness. Light, yet satisfyingly chocolaty.",
+                    price: "₱60.00"
+               },
+               "Double Chocolate Smores Cookie": {
+                    img: "Double Chocolate Smores Cookie.png",
+                    desc: "Soft and chewy double chocolate cookie packed with gooey marshmallows, melty chocolate chunks, and bits of graham crackers. Campfire vibes in every bite.",
+                    price: "₱80.00"
+               },
+               "Smores Cheesecake": {
+                    img: "Smores Cheesecake.png",
+                    desc: "Creamy cheesecake with layers of graham crust, melted chocolate, and torched marshmallow topping — your favorite bonfire treat turned into a dreamy dessert.",
+                    price: "₱95.00"
+               },
+               "Oreo Cookie Cheesecake": {
+                    img: "Oreo Cookie Cheesecake.png",
+                    desc: "A rich and creamy cheesecake loaded with crushed Oreo cookies, layered over a chocolate cookie crust. Classic, indulgent, and always a hit.",
+                    price: "₱90.00"
+               },
+               "Chocolate Cake": {
+                    img: "Chocolate Cake.png",
+                    desc: "Moist layers of rich chocolate sponge coated in smooth chocolate frosting — a timeless dessert made for serious chocolate lovers.",
+                    price: "₱110.00"
+               },
+               "Chocolate Chip Cranberry Almond Cookie": {
+                    img: "Chocolate Chip Cranberry Almond Cookie.png",
+                    desc: "Crispy-edged and chewy-centered, this gourmet cookie is packed with chocolate chips, tart dried cranberries, and crunchy almond bits.",
+                    price: "₱75.00"
+               },
+               "Blueberry Cheesecake": {
+                    img: "Blueberry Cheesecake.png",
+                    desc: "A silky, creamy cheesecake topped with a generous layer of sweet-tart blueberries and nestled on a buttery graham crust.",
+                    price: "₱95.00"
+               }
+          };
+
+          let currentItem = "";
+
+          function openModal(name) {
+               currentItem = name;
+               const item = dessertData[name];
+               document.getElementById("modal-img").src = item.img;
+               document.getElementById("modal-title").innerText = name;
+               document.getElementById("modal-description").innerText = item.desc;
+               document.getElementById("modal-price").innerText = item.price;
+               document.getElementById("modal").style.display = "flex";
+          }
+
+          function closeModal() {
+               document.getElementById("modal").style.display = "none";
+          }
+
+          function addToCart() {
+               const item = dessertData[currentItem];
+               let cart = JSON.parse(localStorage.getItem("cart")) || [];
+               cart.push({ name: currentItem, price: item.price, img: item.img });
+               localStorage.setItem("cart", JSON.stringify(cart));
+               alert(`${currentItem} added to cart!`);
+               closeModal();
+          }
+
+          window.onclick = function (event) {
+               const modal = document.getElementById("modal");
+               if (event.target === modal) {
+                    closeModal();
+               }
+          };
+
+     </script>
+</body>
+
+</html>

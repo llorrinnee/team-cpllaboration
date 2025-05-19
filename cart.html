@@ -6,10 +6,11 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Your Cart</title>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logotus.png">
      <style>
           html,
           body {
-               font-family: Arial, sans-serif;
+               font-family: 'Poppins', sans-serif;
                background-color: #F7A8C4;
                height: 100%;
                margin: 0;
@@ -189,6 +190,7 @@
                font-size: 14px;
           }
 
+
           .footer-container {
                background-color: #F7A8C4;
                padding: 0;
@@ -218,7 +220,6 @@
           }
 
           .social-icon {
-               background-color: #F7A8C4;
                color: white;
                width: 40px;
                height: 40px;
@@ -226,8 +227,15 @@
                display: flex;
                align-items: center;
                justify-content: center;
-               font-size: 1.2rem;
+               font-size: 1.3rem;
                text-decoration: none;
+               transition: all 0.3s ease;
+          }
+
+          .social-icon:hover {
+               transform: translateY(-5px);
+               background-color: whitesmoke;
+               color: #F7A8C4;
           }
 
           .main-footer {
@@ -240,6 +248,7 @@
 
           .company-info {
                text-align: left;
+               color: #555;
           }
 
           .company-name {
@@ -273,13 +282,16 @@
                display: block;
                color: #555;
                text-decoration: none;
-               margin: 5px 0;
+               margin: 10px 0;
                font-size: 0.9rem;
+               transition: all 0.3s ease;
           }
 
           .footer-link:hover {
-               text-decoration: underline;
+               color: #4a332f;
+               transform: translateX(-5px);
           }
+
 
           @media (max-width: 768px) {
                .cart-item {
@@ -337,6 +349,184 @@
                background-color: #b8748b;
                color: white;
           }
+
+          /* Popup styles */
+          .modal-overlay {
+               position: fixed;
+               top: 0;
+               left: 0;
+               right: 0;
+               bottom: 0;
+               background-color: rgba(0, 0, 0, 0.5);
+               display: none;
+               justify-content: center;
+               align-items: center;
+               z-index: 1000;
+          }
+
+          .modal-container {
+               background-color: #F7A8C4;
+               border-radius: 10px;
+               width: 90%;
+               max-width: 500px;
+               padding: 25px;
+               box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+               position: relative;
+               animation: modalAppear 0.3s ease-out;
+          }
+
+          @keyframes modalAppear {
+               from {
+                    opacity: 0;
+                    transform: translateY(-50px);
+               }
+
+               to {
+                    opacity: 1;
+                    transform: translateY(0);
+               }
+          }
+
+          .modal-header {
+               text-align: center;
+               margin-bottom: 20px;
+               padding-bottom: 15px;
+               border-bottom: 1px solid #f0d7e5;
+          }
+
+          .modal-title {
+               color: #4a332f;
+               font-size: 1.5rem;
+               margin: 0;
+          }
+
+          .pickup-options {
+               display: flex;
+               flex-direction: column;
+               gap: 15px;
+          }
+
+          .pickup-option {
+               background-color: white;
+               border: 2px solid #f0d7e5;
+               border-radius: 8px;
+               padding: 15px;
+               cursor: pointer;
+               transition: all 0.3s ease;
+               display: flex;
+               align-items: center;
+          }
+
+          .pickup-option:hover {
+               border-color: #F7A8C4;
+               transform: translateY(-2px);
+          }
+
+          .pickup-option.selected {
+               border-color: #F7A8C4;
+               background-color: #fef6fa;
+          }
+
+          .option-icon {
+               font-size: 1.5rem;
+               margin-right: 15px;
+               color: #F7A8C4;
+          }
+
+          .option-details {
+               flex-grow: 1;
+          }
+
+          .option-title {
+               font-weight: bold;
+               color: #4a332f;
+               margin-bottom: 5px;
+          }
+
+          .option-description {
+               font-size: 0.9rem;
+               color: #666;
+          }
+
+          .modal-actions {
+               display: flex;
+               justify-content: space-between;
+               margin-top: 25px;
+          }
+
+          .modal-btn {
+               padding: 12px 20px;
+               border-radius: 8px;
+               font-size: 1rem;
+               border: none;
+               cursor: pointer;
+               transition: background-color 0.3s;
+               width: 48%;
+          }
+
+          .cancel-btn {
+               background-color: #f0d7e5;
+               color: #4a332f;
+          }
+
+          .cancel-btn:hover {
+               background-color: #e5c4d6;
+          }
+
+          .confirm-btn {
+               background-color: #f0d7e5;
+               color: black;
+               font-weight: bold;
+          }
+
+          .confirm-btn:hover {
+               background-color: #b8748b;
+          }
+
+          .close-modal {
+               position: absolute;
+               top: 15px;
+               right: 15px;
+               background: transparent;
+               border: none;
+               font-size: 1.2rem;
+               color: #666;
+               cursor: pointer;
+          }
+
+          .close-modal:hover {
+               color: #333;
+          }
+
+          /* Radio button styling */
+          .radio-container {
+               display: flex;
+               align-items: center;
+          }
+
+          .custom-radio {
+               width: 20px;
+               height: 20px;
+               border: 2px solid #F7A8C4;
+               border-radius: 50%;
+               margin-right: 10px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+          }
+
+          .custom-radio-inner {
+               width: 12px;
+               height: 12px;
+               border-radius: 50%;
+               background-color: #F7A8C4;
+               opacity: 0;
+               transition: opacity 0.2s;
+          }
+
+          .pickup-option.selected .custom-radio-inner {
+               opacity: 1;
+          }
      </style>
 </head>
 
@@ -344,14 +534,12 @@
      <div class="wrapper">
           <nav class="navbar">
                <a href="menu.html" class="nav-button">← Menu</a>
-               <span>Your Cart</span>
-               <a href="homepageproject.html" class="nav-button">Home</a>
+               <a href="homepage.html" class="nav-button">Home</a>
           </nav>
 
           <div class="cart-container" id="cart-container">
                <h1>Your Cart</h1>
                <p class="empty" id="empty-msg">Your cart is empty.</p>
-               <!-- Store notice will be added here when cart has items -->
           </div>
           <div class="footer-container">
                <div class="social-section">
@@ -370,47 +558,102 @@
                     <div class="company-info">
                          <div class="company-name">LOTUS COFFEE PHILIPPINES INC.</div>
                          <div class="company-details">Company registration no: 635-381-780-00000</div>
+                         <div class="company-info">Recto, Manila</div>
+                         <div class="company-info">Email: lotusbrewcafe@gmail.com</div>
                          <div class="company-copyright">COPYRIGHT 2025 © LOTUS COFFEE</div>
                     </div>
                     <div class="footer-links">
                          <a href="#" class="footer-link">Privacy Policy</a>
                          <a href="#" class="footer-link">Terms & Conditions</a>
-                         <a href="refund-policy.html" class="footer-link">Refund Policy</a>
-                         <!-- Made this link active -->
+                         <a href="#" class="footer-link">Customer Support</a>
+                         <a href="#" class="footer-link">Refund Policy</a>
+                         <a href="#" class="footer-link">FAQS</a>
                     </div>
                </div>
           </div>
-     </div>
 
+          <!-- Modal Pickup/Delivery Popup -->
+          <div class="modal-overlay" id="pickupModal">
+               <div class="modal-container">
+                    <button class="close-modal" id="closeModal">×</button>
+                    <div class="modal-header">
+                         <h2 class="modal-title">Choose Pickup Option</h2>
+                    </div>
+                    <div class="pickup-options">
+                         <div class="pickup-option" data-option="self-pickup">
+                              <div class="radio-container">
+                                   <div class="custom-radio">
+                                        <div class="custom-radio-inner"></div>
+                                   </div>
+                              </div>
+                              <div class="option-icon">
+                                   <i class="fas fa-store"></i>
+                              </div>
+                              <div class="option-details">
+                                   <div class="option-title">Self Pickup</div>
+                                   <div class="option-description">Pick up your order at our store. No extra fees.</div>
+                              </div>
+                         </div>
+                         <div class="pickup-option" data-option="delivery">
+                              <div class="radio-container">
+                                   <div class="custom-radio">
+                                        <div class="custom-radio-inner"></div>
+                                   </div>
+                              </div>
+                              <div class="option-icon">
+                                   <i class="fas fa-motorcycle"></i>
+                              </div>
+                              <div class="option-details">
+                                   <div class="option-title">Delivery</div>
+                                   <div class="option-description">Get your order delivered to your location. Delivery
+                                        fees
+                                        apply.</div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="modal-actions">
+                         <button class="modal-btn cancel-btn" id="cancelBtn">Cancel</button>
+                         <button class="modal-btn confirm-btn" id="confirmBtn">Continue</button>
+                    </div>
+               </div>
+          </div>
 
-     <script>
-          const container = document.getElementById('cart-container');
-          const emptyMsg = document.getElementById('empty-msg');
-          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          <script>
+               const container = document.getElementById('cart-container');
+               const emptyMsg = document.getElementById('empty-msg');
+               let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-          function renderCart() {
-               // Remove previous items
-               document.querySelectorAll('.cart-item, .total, .store-notice, .update-btn, .refund-notice').forEach(el => el.remove());
+               // Modal elements
+               const modal = document.getElementById('pickupModal');
+               const closeModalBtn = document.getElementById('closeModal');
+               const cancelBtn = document.getElementById('cancelBtn');
+               const confirmBtn = document.getElementById('confirmBtn');
+               const pickupOptions = document.querySelectorAll('.pickup-option');
+               let selectedOption = null;
 
-               if (!cart.length) {
-                    emptyMsg.style.display = 'block';
-                    return;
-               }
-               emptyMsg.style.display = 'none';
+               function renderCart() {
+                    // Remove previous items
+                    document.querySelectorAll('.cart-item, .total, .store-notice, .update-btn, .refund-notice').forEach(el => el.remove());
 
-               let total = 0;
-               cart.forEach((item, index) => {
-                    // Ensure quantity is set (default to 1 if not present)
-                    if (!item.quantity) {
-                         item.quantity = 1;
+                    if (!cart.length) {
+                         emptyMsg.style.display = 'block';
+                         return;
                     }
+                    emptyMsg.style.display = 'none';
 
-                    const priceNum = parseFloat(item.price.replace(/[^0-9.-]+/g, ''));
-                    total += priceNum * item.quantity;
+                    let total = 0;
+                    cart.forEach((item, index) => {
+                         // Ensure quantity is set (default to 1 if not present)
+                         if (!item.quantity) {
+                              item.quantity = 1;
+                         }
 
-                    const div = document.createElement('div');
-                    div.className = 'cart-item';
-                    div.innerHTML = `
+                         const priceNum = parseFloat(item.price.replace(/[^0-9.-]+/g, ''));
+                         total += priceNum * item.quantity;
+
+                         const div = document.createElement('div');
+                         div.className = 'cart-item';
+                         div.innerHTML = `
                          <img src="${item.img}" alt="${item.name}">
                          <div class="item-info">
                               <h3>${item.name}</h3>
@@ -424,97 +667,141 @@
                          </div>
                          <button class="remove-btn" data-index="${index}">Remove</button>
                     `;
-                    container.appendChild(div);
-               });
+                         container.appendChild(div);
+                    });
 
 
-               const notice = document.createElement('div');
+                    const notice = document.createElement('div');
 
-               container.appendChild(notice);
-               const refundNotice = document.createElement('div');
-               refundNotice.className = 'refund-notice';
-               refundNotice.innerHTML = `
-                    <div style="background: #FFEDFA; padding-top: 20px; padding: 15px; border-left: 4px solid #FFEDFA; margin: 15px 0;">
+                    container.appendChild(notice);
+                    const refundNotice = document.createElement('div');
+                    refundNotice.className = 'refund-notice';
+                    refundNotice.innerHTML = `
+                    <div style="background: #FFEDFA; padding-top: 20px; padding: 10px; border-left: 4px solid #FFEDFA; margin: 10px 0;">
                          <p><strong>Pickup Order Policy:</strong> Orders can be cancelled up to 1 hour before pickup time. 
                          <a href="refund-policy.html" style="color: #6F4E37; text-decoration: underline;">View refund policy</a> for details.</p>
                     </div>
                `;
-               container.appendChild(refundNotice);
+                    container.appendChild(refundNotice);
 
-               const totalDiv = document.createElement('div');
-               totalDiv.className = 'total';
-               totalDiv.innerText = 'Subtotal: ₱' + total.toFixed(2);
-               container.appendChild(totalDiv);
+                    const totalDiv = document.createElement('div');
+                    totalDiv.className = 'total';
+                    totalDiv.innerText = 'Subtotal: ₱' + total.toFixed(2);
+                    container.appendChild(totalDiv);
 
-               // Add update cart button
-               const updateBtn = document.createElement('button');
-               updateBtn.className = 'update-btn';
-               updateBtn.innerText = 'Proceed to Checkout';
-               updateBtn.onclick = function () {
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    // Changed from alert to actual checkout flow
-                    window.location.href = "checkout.html";
-               };
-               container.appendChild(updateBtn);
+                    // Add update cart button
+                    const updateBtn = document.createElement('button');
+                    updateBtn.className = 'update-btn';
+                    updateBtn.innerText = 'Proceed to Checkout';
+                    updateBtn.onclick = function () {
+                         // Show the pickup modal instead of going directly to checkout
+                         openPickupModal();
+                    };
+                    container.appendChild(updateBtn);
 
-               // Add checkout policy note
-               //const checkoutNote = document.createElement('p');
-               // checkoutNote.style.marginTop = '20px';
-               // checkoutNote.style.fontSize = '0.9em';
-               //checkoutNote.style.textAlign = 'center';
-               //checkoutNote.innerHTML = 'By proceeding, you agree to our <a href="refund-policy.html" style="color: #black;">refund policy</a>.';
-               // container.appendChild(checkoutNote); 
+                    document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
+                         btn.addEventListener('click', function () {
+                              const index = parseInt(this.getAttribute('data-index'));
+                              if (cart[index].quantity > 1) {
+                                   cart[index].quantity--;
+                                   renderCart();
+                              }
+                         });
+                    });
 
-               document.querySelectorAll('.quantity-btn.decrease').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                         const index = parseInt(this.getAttribute('data-index'));
-                         if (cart[index].quantity > 1) {
-                              cart[index].quantity--;
+                    document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
+                         btn.addEventListener('click', function () {
+                              const index = parseInt(this.getAttribute('data-index'));
+                              cart[index].quantity++;
                               renderCart();
-                         }
+                         });
                     });
-               });
 
-               document.querySelectorAll('.quantity-btn.increase').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                         const index = parseInt(this.getAttribute('data-index'));
-                         cart[index].quantity++;
-                         renderCart();
+                    document.querySelectorAll('.quantity-input').forEach(input => {
+                         input.addEventListener('change', function () {
+                              const index = parseInt(this.getAttribute('data-index'));
+                              const newQuantity = parseInt(this.value);
+
+                              if (isNaN(newQuantity) || newQuantity < 1) {
+                                   this.value = cart[index].quantity;
+                                   return;
+                              }
+
+                              cart[index].quantity = newQuantity;
+                              renderCart();
+                         });
                     });
-               });
-
-               document.querySelectorAll('.quantity-input').forEach(input => {
-                    input.addEventListener('change', function () {
-                         const index = parseInt(this.getAttribute('data-index'));
-                         const newQuantity = parseInt(this.value);
-
-                         if (isNaN(newQuantity) || newQuantity < 1) {
-                              this.value = cart[index].quantity;
-                              return;
-                         }
-
-                         cart[index].quantity = newQuantity;
-                         renderCart();
-                    });
-               });
-          }
-
-          function removeItem(idx) {
-               cart.splice(idx, 1);
-               localStorage.setItem('cart', JSON.stringify(cart));
-               renderCart();
-          }
-
-          // Set up event delegation for remove buttons
-          container.addEventListener('click', function (e) {
-               if (e.target.classList.contains('remove-btn')) {
-                    const index = parseInt(e.target.getAttribute('data-index'));
-                    removeItem(index);
                }
-          });
 
-          renderCart();
-     </script>
+               function removeItem(idx) {
+                    cart.splice(idx, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+               }
+
+               // Set up event delegation for remove buttons
+               container.addEventListener('click', function (e) {
+                    if (e.target.classList.contains('remove-btn')) {
+                         const index = parseInt(e.target.getAttribute('data-index'));
+                         removeItem(index);
+                    }
+               });
+
+               // Modal functions
+               function openPickupModal() {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+               }
+
+               function closePickupModal() {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                    // Reset selection
+                    pickupOptions.forEach(option => option.classList.remove('selected'));
+                    selectedOption = null;
+               }
+
+               // Setup modal event listeners
+               closeModalBtn.addEventListener('click', closePickupModal);
+               cancelBtn.addEventListener('click', closePickupModal);
+
+               // Close modal when clicking outside
+               modal.addEventListener('click', function (e) {
+                    if (e.target === modal) {
+                         closePickupModal();
+                    }
+               });
+
+               // Setup pickup options
+               pickupOptions.forEach(option => {
+                    option.addEventListener('click', function () {
+                         // Remove selected class from all options
+                         pickupOptions.forEach(opt => opt.classList.remove('selected'));
+                         // Add selected class to clicked option
+                         this.classList.add('selected');
+                         // Store selected option
+                         selectedOption = this.getAttribute('data-option');
+                    });
+               });
+
+               // Confirm button action
+               confirmBtn.addEventListener('click', function () {
+                    if (!selectedOption) {
+                         alert('Please select a pickup option');
+                         return;
+                    }
+
+                    // Save the selected option to localStorage
+                    localStorage.setItem('pickupOption', selectedOption);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Redirect to checkout page
+                    window.location.href = "checkout.html";
+               });
+
+               // Initialize the cart
+               renderCart();
+          </script>
 </body>
 
 </html>

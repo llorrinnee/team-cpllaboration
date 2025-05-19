@@ -6,9 +6,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Menu</title>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logotus.png">
      <style>
           body {
-               font-family: Arial, sans-serif;
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
                background-color: #F7A8C4;
                margin: 0;
                padding: 0;
@@ -96,14 +97,13 @@
           .content {
                flex-grow: 1;
                padding: 15px;
-               margin-left: 65px;
-               padding-left: 55px;
           }
 
           .menu {
                display: flex;
                flex-wrap: wrap;
                gap: 20px;
+               padding-top: 10px;
           }
 
           .menu-item {
@@ -243,8 +243,15 @@
                display: flex;
                align-items: center;
                justify-content: center;
-               font-size: 1.2rem;
+               font-size: 1.3rem;
                text-decoration: none;
+               transition: all 0.3s ease;
+          }
+
+          .social-icon:hover {
+               transform: translateY(-5px);
+               background-color: whitesmoke;
+               color: #F7A8C4;
           }
 
           .main-footer {
@@ -257,6 +264,7 @@
 
           .company-info {
                text-align: left;
+               color: #555;
           }
 
           .company-name {
@@ -282,38 +290,26 @@
                height: auto;
           }
 
-          .footer-links {
-               text-align: right;
-          }
-
           .footer-link {
                display: block;
                color: #555;
                text-decoration: none;
-               margin: 5px 0;
+               margin: 10px 0;
                font-size: 0.9rem;
+               transition: all 0.3s ease;
+               text-align: right;
           }
+
+          .footer-link:hover {
+               color: #4a332f;
+               transform: translateX(-5px);
+          }
+
 
           .footer-link:hover {
                text-decoration: underline;
           }
 
-          @media (max-width: 768px) {
-               .main-footer {
-                    flex-direction: column;
-                    text-align: center;
-               }
-
-               .company-info {
-                    text-align: center;
-                    margin-bottom: 20px;
-               }
-
-               .footer-links {
-                    text-align: center;
-                    margin-top: 20px;
-               }
-          }
 
           .customization-container {
                margin: 15px 0;
@@ -386,13 +382,131 @@
                max-height: 80vh;
                overflow-y: auto;
           }
+
+
+          @media (max-width: 768px) {
+
+
+               body {
+                    overflow-x: hidden;
+               }
+
+               .navbar {
+                    flex-direction: row;
+                    gap: 10px;
+                    padding: 10px;
+               }
+
+               .nav-button {
+                    margin: 5px 0;
+                    font-size: 14px;
+               }
+
+               .container {
+                    flex-direction: column;
+                    align-items: center;
+               }
+
+               .sidebar {
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+               }
+
+               .sidebar-heading {
+                    width: 100%;
+               }
+
+               .sidebar ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+               }
+
+               .sidebar ul li {
+                    display: inline-block;
+                    margin: 5px;
+               }
+
+               .sidebar ul li a {
+                    display: inline-block;
+                    padding: 6px 12px;
+               }
+
+               .menu {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                    padding: 10px;
+                    justify-items: center;
+               }
+
+               .menu-item {
+                    width: 90%;
+                    margin: 0 auto;
+                    padding: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    border-radius: 16px;
+                    background-color: #ffe9f7;
+                    text-align: center;
+                    height: 300px;
+                    flex-direction: column;
+               }
+
+               .menu-item img {
+                    width: 100%;
+                    height: 180px;
+                    max-height: 160px;
+                    object-fit: cover;
+               }
+
+               .menu-item h3 {
+                    font-size: 16px;
+                    margin-top: 10px;
+               }
+
+               .modal-content {
+                    width: 95%;
+                    max-height: 90vh;
+                    padding: 15px;
+                    margin: 5% auto;
+               }
+
+               .modal-content img {
+                    width: 80%;
+               }
+
+               .customization-option {
+                    padding: 10px;
+               }
+
+               .add-to-cart-button {
+                    width: 100%;
+                    padding: 12px;
+               }
+
+               .social-icons {
+                    justify-content: center;
+               }
+
+               .main-footer {
+                    flex-direction: column;
+                    text-align: center;
+               }
+
+               .company-info,
+               .footer-links {
+                    text-align: center;
+                    margin-bottom: 15px;
+               }
+          }
      </style>
 </head>
 
 <body>
      <nav class="navbar">
           <a href="menu.html" class="nav-button"> Menu </a>
-          <a href="homepageproject.html" class="logo"><img src="logotus.png" alt="LOGO"
+          <a href="homepage.html" class="logo"><img src="logotus.png" alt="LOGO"
                     style="height: 65px; border-radius: 8px;"></a>
           <a href="cart.html" class="social-icon">
                <i class="fa fa-cart-shopping"></i>
@@ -437,26 +551,25 @@
                          <img src="Salted Caramel.png" alt="salted-caramel-frappe">
                          <h3> Salted Caramel </h3>
                     </div>
-                    <div class="menu">
-                         <div class="menu-item" onclick="openModal('Choco Chip')">
-                              <img src="Choco Chip.png" alt="Choco Chip">
-                              <h3>Choco Chip</h3>
-                         </div>
-                         <div class="menu-item" onclick="openModal('Irish Cream')">
-                              <img src="Irish Cream.png" alt="Irish Cream">
-                              <h3>Irish Cream</h3>
-                         </div>
-                         <div class="menu-item" onclick="openModal('Java Cocoa')">
-                              <img src="Java Cocoa.png" alt="Java Cocoa">
-                              <h3>Java Cocoa</h3>
-                         </div>
-                         <div class="menu-item" onclick="openModal('Triple Java Jelly')">
-                              <img src="Triple Java Jelly.png" alt="Triple Java Jelly">
-                              <h3>Triple Java Jelly</h3>
-                         </div>
+                    <div class="menu-item" onclick="openModal('Choco Chip')">
+                         <img src="Choco Chip.png" alt="Choco Chip">
+                         <h3>Choco Chip</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Irish Cream')">
+                         <img src="Irish Cream.png" alt="Irish Cream">
+                         <h3>Irish Cream</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Java Cocoa')">
+                         <img src="Java Cocoa.png" alt="Java Cocoa">
+                         <h3>Java Cocoa</h3>
+                    </div>
+                    <div class="menu-item" onclick="openModal('Triple Java Jelly')">
+                         <img src="Triple Java Jelly.png" alt="Triple Java Jelly">
+                         <h3>Triple Java Jelly</h3>
                     </div>
                </div>
           </div>
+     </div>
      </div>
      <div class="footer-container">
           <div class="social-section">
@@ -475,12 +588,16 @@
                <div class="company-info">
                     <div class="company-name">LOTUS COFFEE PHILIPPINES INC.</div>
                     <div class="company-details">Company registration no: 635-381-780-00000</div>
+                    <div class="company-info">Recto, Manila</div>
+                    <div class="company-info">Email: lotusbrewcafe@gmail.com</div>
                     <div class="company-copyright">COPYRIGHT 2025 © LOTUS COFFEE</div>
                </div>
                <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Customer Support</a>
                     <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">FAQS</a>
                </div>
           </div>
      </div>

@@ -4,26 +4,34 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Refund Policy | [Your Coffee Shop Name]</title>
+     <title>Refund Policy | Lotus Brew Cafe</title>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logotus.png">
      <style>
           body {
-               font-family: 'Arial', sans-serif;
+               font-family: 'Poppins', sans-serif;
                line-height: 1.6;
                max-width: 800px;
                margin: 0 auto;
                padding: 20px;
                color: #333;
-               background-color: #FFEDFA;
+               background-color: #F7A8C4;
           }
 
           h1 {
-               color: palevioletred;
+               color: white;
                text-align: center;
                border-bottom: 2px solid #6F4E37;
                padding-bottom: 10px;
           }
 
           h2 {
+               color: white;
+          }
+
+          h3 {
                color: palevioletred;
                margin-top: 25px;
           }
@@ -56,59 +64,202 @@
           a {
                color: black;
           }
+
+          .policy-tabs {
+               display: flex;
+               justify-content: center;
+               margin-bottom: 20px;
+          }
+
+          .policy-tab {
+               padding: 10px 20px;
+               background-color: #f5f5f5;
+               border: 1px solid #ddd;
+               cursor: pointer;
+               margin: 0 5px;
+               border-radius: 5px 5px 0 0;
+          }
+
+          .policy-tab.active {
+               background-color: palevioletred;
+               color: white;
+               border-color: palevioletred;
+          }
+
+          .main-footer {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               padding: 20px 10%;
+               width: 100%;
+               box-sizing: border-box;
+               text-align: center;
+          }
+
+          .footer {
+               text-align: center;
+          }
+
+          .copyright p {
+               font-size: 14px;
+               color: #555;
+               text-align: center;
+          }
      </style>
 </head>
 
 <body>
-     <h1>Pickup Order Refund Policy</h1>
-     <p><em>Last updated: [Date]</em></p>
+     <h1>Refund Policy</h1>
 
-     <div class="policy-section">
-          <h2>Order Cancellations & Changes</h2>
-          <p>Changed your mind before pickup? Here’s what you need to know:</p>
-          <ul>
-               <li><strong>Full refunds:</strong> Cancel via your order confirmation email <strong>at least 1 hour
-                         before pickup</strong>.</li>
-               <li><strong>Late cancellations:</strong> No refunds if canceled less than 1 hour before pickup.</li>
-               <li><strong>Order modifications:</strong> Contact us at least 30 minutes before pickup at <a
-                         href="tel:+1234567890">(123) 456-7890</a>.</li>
-          </ul>
-          <a href="mailto:orders@yourcoffee.com?subject=Cancel Order #XXX" class="button">Cancel My Order</a>
+     <div class="policy-tabs">
+          <div class="policy-tab active" onclick="showPolicy('pickup')">Pickup Orders</div>
+          <div class="policy-tab" onclick="showPolicy('delivery')">Delivery Orders</div>
+     </div>
+
+     <div id="pickup-policy">
+          <h2 style="text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Pickup Order Policy</h2>
+
+          <div class="policy-section">
+               <h3>Order Cancellations & Changes</h3>
+               <p>Changed your mind before pickup? Here's what you need to know:</p>
+               <ul>
+                    <li><strong>Full refunds:</strong> Cancel via your order confirmation email <strong>at least 1 hour
+                              before pickup</strong>.</li>
+                    <li><strong>Late cancellations:</strong> No refunds if canceled less than 1 hour before pickup.</li>
+                    <li><strong>Order modifications:</strong> Contact us at least 30 minutes before pickup at <a
+                              href="tel:+1234567890">(123) 456-7890</a>.</li>
+               </ul>
+               <a href="mailto:lotusbrewcafeph@gmail.com?subject=Cancel Order #XXX" class="button">Cancel My Order</a>
+          </div>
+
+          <div class="policy-section">
+               <h3>Quality Issues</h3>
+               <p>If your coffee isn't right when you pick it up:</p>
+               <ol>
+                    <li><strong>Check your order immediately</strong> before leaving.</li>
+                    <li><strong>Notify our staff on-site</strong> for a remake or refund.</li>
+                    <li><strong>Post-pickup issues?</strong> Email <a
+                              href="mailto:lotusbrewcafeph@gmail.com">lotusbrewcafeph@gmail.com</a> within 24 hours with
+                         photos.</li>
+               </ol>
+          </div>
+
+          <div class="faq">
+               <h3>Pickup FAQs</h3>
+               <p><strong>Q: What if I miss my pickup window?</strong><br>
+                    A: Orders held for 2 hours. No refunds after this period.</p>
+
+               <p><strong>Q: Can I get a refund if I don't like the coffee?</strong><br>
+                    A: No—but we'll remake your drink if you tell us at pickup!</p>
+
+               <p><strong>Q: Wrong order at pickup?</strong><br>
+                    A: We'll remake it immediately—just let us know.</p>
+          </div>
+     </div>
+
+     <!-- DELIVERY POLICY -->
+     <div id="delivery-policy" style="display: none;">
+          <h2 style="text-align: center; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Delivery Order Policy
+          </h2>
+
+          <div class="policy-section">
+               <h3>Delivery Cancellations & Changes</h3>
+               <p>Need to cancel or modify your delivery? Here's our policy:</p>
+               <ul>
+                    <li><strong>Full refunds:</strong> Cancel via your order confirmation email <strong>at least 2 hours
+                              before scheduled delivery</strong>.</li>
+                    <li><strong>Partial refunds (75%):</strong> Cancellations between 1-2 hours before delivery.</li>
+                    <li><strong>Late cancellations:</strong> No refunds if canceled less than 1 hour before delivery.
+                    </li>
+                    <li><strong>Order modifications:</strong> Contact us at least 1 hour before delivery at <a
+                              href="tel:+1234567890">(123) 456-7890</a>.</li>
+               </ul>
+               <a href="mailto:lotusbrewcafeph@gmail.com?subject=Cancel Delivery Order #XXX" class="button">Cancel My
+                    Delivery</a>
+          </div>
+
+          <div class="policy-section">
+               <h3>Delivery Issues</h3>
+               <p>If there's a problem with your delivery:</p>
+               <ol>
+                    <li><strong>Late deliveries:</strong> If your order arrives more than 30 minutes past the estimated
+                         delivery time, contact us for a partial refund of delivery fees.</li>
+                    <li><strong>Quality issues:</strong> Check your order immediately upon delivery. For temperature
+                         issues, incorrect items, or damaged products, take photos and contact us within 30 minutes of
+                         delivery.</li>
+                    <li><strong>Missing items:</strong> Report any missing items within 1 hour of delivery with your
+                         order number.</li>
+               </ol>
+          </div>
+
+          <div class="policy-section">
+               <h3>Delivery-Specific Refunds</h3>
+               <ul>
+                    <li><strong>Delivery fee refunds:</strong> Full refund of delivery fees for late deliveries (30+
+                         minutes past estimated time).</li>
+                    <li><strong>Undelivered orders:</strong> Full refund including delivery fees if we're unable to
+                         complete your delivery.</li>
+                    <li><strong>Wrong address:</strong> No refund if the delivery address you provided was incorrect.
+                    </li>
+               </ul>
+          </div>
+
+          <div class="faq">
+               <h3>Delivery FAQs</h3>
+               <p><strong>Q: What if I'm not available at delivery time?</strong><br>
+                    A: Our driver will wait for 5 minutes and attempt to contact you. After that, they'll leave the
+                    order in a safe place if possible and send a photo notification. No refunds for missed deliveries.
+               </p>
+
+               <p><strong>Q: Can I change my delivery address after ordering?</strong><br>
+                    A: Address changes must be requested at least 1 hour before delivery and may incur additional fees
+                    if outside our delivery zone.</p>
+
+               <p><strong>Q: How do I report issues with my delivery?</strong><br>
+                    A: Email <a href="mailto:lotusbrewcafeph@gmail.com">lotusbrewcafeph@gmail.com</a> with your order
+                    number and photos (if applicable) within 1 hour of delivery.</p>
+          </div>
      </div>
 
      <div class="policy-section">
-          <h2>Quality Issues</h2>
-          <p>If your coffee isn’t right when you pick it up:</p>
-          <ol>
-               <li><strong>Check your order immediately</strong> before leaving.</li>
-               <li><strong>Notify our staff on-site</strong> for a remake or refund.</li>
-               <li><strong>Post-pickup issues?</strong> Email <a
-                         href="mailto:lotusbrewcafeph@gmail.com">lotusbrewcafeph@gmail.com</a> within 24 hours with
-                    photos.</li>
-          </ol>
-     </div>
-
-     <div class="faq">
-          <h2>Pickup FAQs</h2>
-          <p><strong>Q: What if I miss my pickup window?</strong><br>
-               A: Orders held for 2 hours. No refunds after this period.</p>
-
-          <p><strong>Q: Can I get a refund if I don’t like the coffee?</strong><br>
-               A: No—but we’ll remake your drink if you tell us at pickup!</p>
-
-          <p><strong>Q: Wrong order at pickup?</strong><br>
-               A: We’ll remake it immediately—just let us know.</p>
-     </div>
-
-     <div class="policy-section">
-          <h2>How Refunds Are Processed</h2>
+          <h3>How Refunds Are Processed</h3>
           <ul>
                <li>Credit/debit card refunds: 1-2 business days.</li>
                <li>Gift cards: Credited back within 24 hours.</li>
           </ul>
      </div>
 
-     <p><em>Need urgent help with a pickup order? Call us: <a href="tel:+1234567890">(123) 456-7890</a></em> ☕</p>
+     <p><em>Need urgent help with your order? Call us: <a href="tel:+1234567890">(123) 456-7890</a></em> ☕</p>
+
+     <footer class="main-footer">
+          <div class="footer">
+               <p class="copyright">© 2025 LOTUS COFFEE. All Rights Reserved.</p>
+          </div>
+     </footer>
+
+     <script>
+          function showPolicy(type) {
+               // Hide all policies
+               document.getElementById('pickup-policy').style.display = 'none';
+               document.getElementById('delivery-policy').style.display = 'none';
+
+               // Show selected policy
+               document.getElementById(type + '-policy').style.display = 'block';
+
+               // Update active tab
+               const tabs = document.getElementsByClassName('policy-tab');
+               for (let i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.remove('active');
+               }
+
+               if (type === 'pickup') {
+                    tabs[0].classList.add('active');
+               } else {
+                    tabs[1].classList.add('active');
+               }
+          }
+     </script>
 </body>
 
 </html>

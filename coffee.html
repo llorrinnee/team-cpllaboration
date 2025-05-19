@@ -4,11 +4,12 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Menu</title>
+     <title>Menu | Coffee </title>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logotus.png">
      <style>
           body {
-               font-family: Arial, sans-serif;
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
                background-color: #F7A8C4;
                margin: 0;
                padding: 0;
@@ -97,11 +98,6 @@
           .content {
                flex-grow: 1;
                padding: 15px;
-               margin-left: 65px;
-          }
-
-          .content-section {
-               padding-top: 10px;
           }
 
           .menu {
@@ -247,8 +243,15 @@
                display: flex;
                align-items: center;
                justify-content: center;
-               font-size: 1.2rem;
+               font-size: 1.3rem;
                text-decoration: none;
+               transition: all 0.3s ease;
+          }
+
+          .social-icon:hover {
+               transform: translateY(-5px);
+               background-color: whitesmoke;
+               color: #F7A8C4;
           }
 
           .main-footer {
@@ -261,6 +264,7 @@
 
           .company-info {
                text-align: left;
+               color: #555;
           }
 
           .company-name {
@@ -286,37 +290,24 @@
                height: auto;
           }
 
-          .footer-links {
-               text-align: right;
-          }
-
           .footer-link {
                display: block;
                color: #555;
                text-decoration: none;
-               margin: 5px 0;
+               margin: 10px 0;
                font-size: 0.9rem;
+               transition: all 0.3s ease;
+               text-align: right;
           }
 
           .footer-link:hover {
-               text-decoration: underline;
+               color: #4a332f;
+               transform: translateX(-5px);
           }
 
-          @media (max-width: 768px) {
-               .main-footer {
-                    flex-direction: column;
-                    text-align: center;
-               }
 
-               .company-info {
-                    text-align: center;
-                    margin-bottom: 20px;
-               }
-
-               .footer-links {
-                    text-align: center;
-                    margin-top: 20px;
-               }
+          .footer-link:hover {
+               text-decoration: underline;
           }
 
           /* Customization Options Styling */
@@ -391,13 +382,130 @@
                max-height: 80vh;
                overflow-y: auto;
           }
+
+          @media (max-width: 768px) {
+
+
+               body {
+                    overflow-x: hidden;
+               }
+
+               .navbar {
+                    flex-direction: row;
+                    gap: 10px;
+                    padding: 10px;
+               }
+
+               .nav-button {
+                    margin: 5px 0;
+                    font-size: 14px;
+               }
+
+               .container {
+                    flex-direction: column;
+                    align-items: center;
+               }
+
+               .sidebar {
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+               }
+
+               .sidebar-heading {
+                    width: 100%;
+               }
+
+               .sidebar ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+               }
+
+               .sidebar ul li {
+                    display: inline-block;
+                    margin: 5px;
+               }
+
+               .sidebar ul li a {
+                    display: inline-block;
+                    padding: 6px 12px;
+               }
+
+               .menu {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                    padding: 10px;
+                    justify-items: center;
+               }
+
+               .menu-item {
+                    width: 90%;
+                    margin: 0 auto;
+                    padding: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    border-radius: 16px;
+                    background-color: #ffe9f7;
+                    text-align: center;
+                    height: 300px;
+                    flex-direction: column;
+               }
+
+               .menu-item img {
+                    width: 100%;
+                    height: 180px;
+                    max-height: 160px;
+                    object-fit: cover;
+               }
+
+               .menu-item h3 {
+                    font-size: 16px;
+                    margin-top: 10px;
+               }
+
+               .modal-content {
+                    width: 95%;
+                    max-height: 90vh;
+                    padding: 15px;
+                    margin: 5% auto;
+               }
+
+               .modal-content img {
+                    width: 80%;
+               }
+
+               .customization-option {
+                    padding: 10px;
+               }
+
+               .add-to-cart-button {
+                    width: 100%;
+                    padding: 12px;
+               }
+
+               .social-icons {
+                    justify-content: center;
+               }
+
+               .main-footer {
+                    flex-direction: column;
+                    text-align: center;
+               }
+
+               .company-info,
+               .footer-links {
+                    text-align: center;
+                    margin-bottom: 15px;
+               }
+          }
      </style>
 </head>
 
 <body>
      <nav class="navbar">
           <a href="menu.html" class="nav-button">Menu</a>
-          <a href="homepageproject.html"><img src="logotus.png" alt="LOGO" style="height:65px;border-radius:8px;"> </a>
+          <a href="homepage.html"><img src="logotus.png" alt="LOGO" style="height:65px;border-radius:8px;"> </a>
           <a href="cart.html" class="social-icon">
                <i class="fa fa-cart-shopping"></i>
           </a>
@@ -443,7 +551,7 @@
                     </div>
                </div>
 
-               <div class="content-section">
+               <div class="content">
                     <h2>Classics</h2>
                     <div class="menu">
                          <div class="menu-item" onclick="openModal('Americano')">
@@ -466,8 +574,6 @@
                               <img src="Cafe Latté.png" alt="Café Latté">
                               <h3>Café Latté</h3>
                          </div>
-                    </div>
-                    <div class="content-section">
                          <div class="menu-item" onclick="openModal('Café Mocha')">
                               <img src="Café Mocha.png" alt="Café Mocha">
                               <h3>Café Mocha</h3>
@@ -493,794 +599,797 @@
                <div class="company-info">
                     <div class="company-name">LOTUS COFFEE PHILIPPINES INC.</div>
                     <div class="company-details">Company registration no: 635-381-780-00000</div>
+                    <div class="company-info">Recto, Manila</div>
+                    <div class="company-info">Email: lotusbrewcafe@gmail.com</div>
                     <div class="company-copyright">COPYRIGHT 2025 © LOTUS COFFEE</div>
                </div>
                <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Customer Support</a>
                     <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">FAQS</a>
                </div>
           </div>
-     </div>
 
-     <div id="modal" class="modal">
-          <div class="modal-content">
-               <span class="close" onclick="closeModal()">&times;</span>
-               <img id="modal-img" src="" alt="">
-               <h3 id="modal-title"></h3>
-               <p id="modal-description"></p>
-               <p id="modal-price" style="font-weight:bold;"></p>
+          <div id="modal" class="modal">
+               <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img id="modal-img" src="" alt="">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                    <p id="modal-price" style="font-weight:bold;"></p>
 
-               <div id="customization-options" class="customization-container"></div>
-               <button class="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+                    <div id="customization-options" class="customization-container"></div>
+                    <button class="add-to-cart-button" onclick="addToCart()">Add to Cart</button>
+               </div>
           </div>
-     </div>
 
-     <script>
-          const coffeeData = {
-               "Buttercrème Latté": {
-                    img: "Buttercrème Latté.png",
-                    desc: "Smooth espresso with rich buttercream notes for a velvety indulgence.",
-                    price: "₱120.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "No Shot", },
-                                   { name: "BOSS", price: "+₱20.00" },
-                                   { name: "KONA", price: "+₱20.00" }
-                              ]
-                         },
+          <script>
+               const coffeeData = {
+                    "Buttercrème Latté": {
+                         img: "Buttercrème Latté.png",
+                         desc: "Smooth espresso with rich buttercream notes for a velvety indulgence.",
+                         price: "₱120.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "No Shot", },
+                                        { name: "BOSS", price: "+₱20.00" },
+                                        { name: "KONA", price: "+₱20.00" }
+                                   ]
+                              },
 
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-                    }
-               },
-               "Seasalt Brown Sugar": {
-                    img: "Seasalt Brown Sugar.png",
-                    desc: "Balanced sweetness and a hint of sea salt in a brown sugar coffee blend.",
-                    price: "₱135.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
                          }
+                    },
+                    "Seasalt Brown Sugar": {
+                         img: "Seasalt Brown Sugar.png",
+                         desc: "Balanced sweetness and a hint of sea salt in a brown sugar coffee blend.",
+                         price: "₱135.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
 
-                    }
-               },
-               "Spanish Latté": {
-                    img: "Spanish Latté.png",
-                    desc: "Classic espresso sweetened with condensed milk and creamy milk foam.",
-                    price: "₱110.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
 
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
 
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
+                         }
+                    },
+                    "Spanish Latté": {
+                         img: "Spanish Latté.png",
+                         desc: "Classic espresso sweetened with condensed milk and creamy milk foam.",
+                         price: "₱110.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Velvet Crème Latté": {
+                         img: "Velvet Crème Latté.png",
+                         desc: "Silky textured coffee with delicate vanilla and creamy undertones.",
+                         price: "₱130.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Gula Melaka": {
+                         img: "Gula Melaka.png",
+                         desc: "Rich palm sugar coffee with a tropical twist and smooth finish.",
+                         price: "₱110.00",
+                         customizations: {
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+
+                         }
+                    },
+                    "Americano": {
+                         img: "Americano.png",
+                         desc: "A shot of espresso with a deep-tan crema that’s smooth and robust.",
+                         price: "₱85.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+
+                         }
+                    },
+                    "Caramel Macchiato": {
+                         img: "Caramel Macchiato.png",
+                         desc: "Espresso poured over frothed milk and vanilla, then topped with caramel.",
+                         price: "₱110.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Espresso": {
+                         img: "Espresso.png",
+                         desc: "An Italian espresso with dark chocolate and smoky notes.",
+                         price: "₱40.00",
+                         customizations: {
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Salted Caramel Latté": {
+                         img: "Salted Caramel Latté.png",
+                         desc: "A salty-sweet touch to your daily coffee.",
+                         price: "₱115.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Café Latté": {
+                         img: "Cafe Latté.png",
+                         desc: "Creamy espresso beverage topped with milk foam.",
+                         price: "₱100.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
+                         }
+                    },
+                    "Café Mocha": {
+                         img: "Café Mocha.png",
+                         desc: "The mixture of chocolate and coffee that created this tall, dark and heavenly drink that has won over the hearts of many.",
+                         price: "₱115.00",
+                         customizations: {
+                              "Temperature": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "hot" },
+                                        { name: "cold" }
+                                   ]
+                              },
+                              "Milk": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Dairy Milk", price: "+₱0.00" },
+                                        { name: "Soy Milk", price: "+₱30.00" },
+                                        { name: "Oat Milk", price: "+₱45.00" },
+                                        { name: "Coconut Milk", price: "+₱45.00" }
+                                   ]
+                              },
+                              "Coffee Bean": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "BOSS", desc: "Dark Choclate" },
+                                        { name: "KONA", desc: "Nutty" }
+                                   ]
+                              },
+                              "Coffee": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Standard" },
+                                        { name: "Add Shot", price: "+₱25.00" }
+                                   ]
+                              },
+                              "Sweetness": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Regular Sweetness" },
+                                        { name: "Less Sweet" },
+                                        { name: "More Sweet" }
+                                   ]
+                              },
+
+                              "Syrup": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Salted Caramel Syrup", price: "+₱20.00" },
+                                        { name: "French Vanilla Syrup", price: "+₱20.00" }
+                                   ]
+                              },
+
+                              "Drizzle": {
+                                   type: "radio",
+                                   required: true,
+                                   options: [
+                                        { name: "Caramel Drizzle", price: "+₱20.00" },
+                                        { name: "Gula Melaka Drizzle", price: "+₱20.00" },
+                                   ]
+                              }
                          }
                     }
-               },
-               "Velvet Crème Latté": {
-                    img: "Velvet Crème Latté.png",
-                    desc: "Silky textured coffee with delicate vanilla and creamy undertones.",
-                    price: "₱130.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
+               };
 
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
 
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
+               let currentItem = "";
+
+               function updateTotalPrice() {
+                    const item = coffeeData[currentItem];
+                    let basePrice = parseFloat(item.price.replace(/[₱,]/g, ""));
+                    let total = basePrice;
+
+                    if (item.customizations) {
+                         for (const [groupName, group] of Object.entries(item.customizations)) {
+                              const inputName = `${groupName}`;
+                              const selected = document.querySelector(`input[name="${inputName}"]:checked`);
+                              if (selected) {
+                                   const priceText = selected.closest('.customization-option')
+                                        .querySelector('.customization-price')?.innerText || "+₱0.00";
+                                   const addonPrice = parseFloat(priceText.replace(/[₱+]/g, "")) || 0;
+                                   total += addonPrice;
+                              }
                          }
                     }
-               },
-               "Gula Melaka": {
-                    img: "Gula Melaka.png",
-                    desc: "Rich palm sugar coffee with a tropical twist and smooth finish.",
-                    price: "₱110.00",
-                    customizations: {
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
 
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-
-                    }
-               },
-               "Americano": {
-                    img: "Americano.png",
-                    desc: "A shot of espresso with a deep-tan crema that’s smooth and robust.",
-                    price: "₱85.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-
-                    }
-               },
-               "Caramel Macchiato": {
-                    img: "Caramel Macchiato.png",
-                    desc: "Espresso poured over frothed milk and vanilla, then topped with caramel.",
-                    price: "₱110.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-                    }
-               },
-               "Espresso": {
-                    img: "Espresso.png",
-                    desc: "An Italian espresso with dark chocolate and smoky notes.",
-                    price: "₱40.00",
-                    customizations: {
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-                    }
-               },
-               "Salted Caramel Latté": {
-                    img: "Salted Caramel Latté.png",
-                    desc: "A salty-sweet touch to your daily coffee.",
-                    price: "₱115.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-                    }
-               },
-               "Café Latté": {
-                    img: "Cafe Latté.png",
-                    desc: "Creamy espresso beverage topped with milk foam.",
-                    price: "₱100.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-                    }
-               },
-               "Café Mocha": {
-                    img: "Café Mocha.png",
-                    desc: "The mixture of chocolate and coffee that created this tall, dark and heavenly drink that has won over the hearts of many.",
-                    price: "₱115.00",
-                    customizations: {
-                         "Temperature": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "hot" },
-                                   { name: "cold" }
-                              ]
-                         },
-                         "Milk": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Dairy Milk", price: "+₱0.00" },
-                                   { name: "Soy Milk", price: "+₱30.00" },
-                                   { name: "Oat Milk", price: "+₱45.00" },
-                                   { name: "Coconut Milk", price: "+₱45.00" }
-                              ]
-                         },
-                         "Coffee Bean": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "BOSS", desc: "Dark Choclate" },
-                                   { name: "KONA", desc: "Nutty" }
-                              ]
-                         },
-                         "Coffee": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Standard" },
-                                   { name: "Add Shot", price: "+₱25.00" }
-                              ]
-                         },
-                         "Sweetness": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Regular Sweetness" },
-                                   { name: "Less Sweet" },
-                                   { name: "More Sweet" }
-                              ]
-                         },
-
-                         "Syrup": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Salted Caramel Syrup", price: "+₱20.00" },
-                                   { name: "French Vanilla Syrup", price: "+₱20.00" }
-                              ]
-                         },
-
-                         "Drizzle": {
-                              type: "radio",
-                              required: true,
-                              options: [
-                                   { name: "Caramel Drizzle", price: "+₱20.00" },
-                                   { name: "Gula Melaka Drizzle", price: "+₱20.00" },
-                              ]
-                         }
-                    }
+                    document.getElementById("modal-price").innerText = `₱${total.toFixed(2)}`;
                }
-          };
 
+               function openModal(name) {
+                    currentItem = name;
+                    const item = coffeeData[name];
+                    document.getElementById("modal-img").src = item.img;
+                    document.getElementById("modal-title").innerText = name;
+                    document.getElementById("modal-description").innerText = item.desc;
 
-          let currentItem = "";
+                    const optionsContainer = document.getElementById("customization-options");
+                    optionsContainer.innerHTML = "";
 
-          function updateTotalPrice() {
-               const item = coffeeData[currentItem];
-               let basePrice = parseFloat(item.price.replace(/[₱,]/g, ""));
-               let total = basePrice;
+                    if (item.customizations) {
+                         for (const [groupName, group] of Object.entries(item.customizations)) {
+                              const groupElement = document.createElement("div");
+                              groupElement.className = "customization-group";
 
-               if (item.customizations) {
-                    for (const [groupName, group] of Object.entries(item.customizations)) {
-                         const inputName = `${groupName}`;
-                         const selected = document.querySelector(`input[name="${inputName}"]:checked`);
-                         if (selected) {
-                              const priceText = selected.closest('.customization-option')
-                                   .querySelector('.customization-price')?.innerText || "+₱0.00";
-                              const addonPrice = parseFloat(priceText.replace(/[₱+]/g, "")) || 0;
-                              total += addonPrice;
-                         }
-                    }
-               }
+                              const titleElement = document.createElement("div");
+                              titleElement.className = "customization-title";
+                              titleElement.innerHTML = `<i class="fas fa-chevron-right"></i> ${groupName}`;
+                              groupElement.appendChild(titleElement);
 
-               document.getElementById("modal-price").innerText = `₱${total.toFixed(2)}`;
-          }
+                              group.options.forEach((option, idx) => {
+                                   const optionId = `${name}-${groupName}-${option.name.replace(/\s+/g, '-')}`;
+                                   const priceText = option.price ?? "+₱0.00";
 
-          function openModal(name) {
-               currentItem = name;
-               const item = coffeeData[name];
-               document.getElementById("modal-img").src = item.img;
-               document.getElementById("modal-title").innerText = name;
-               document.getElementById("modal-description").innerText = item.desc;
+                                   const optionElement = document.createElement("div");
+                                   optionElement.className = "customization-option";
 
-               const optionsContainer = document.getElementById("customization-options");
-               optionsContainer.innerHTML = "";
-
-               if (item.customizations) {
-                    for (const [groupName, group] of Object.entries(item.customizations)) {
-                         const groupElement = document.createElement("div");
-                         groupElement.className = "customization-group";
-
-                         const titleElement = document.createElement("div");
-                         titleElement.className = "customization-title";
-                         titleElement.innerHTML = `<i class="fas fa-chevron-right"></i> ${groupName}`;
-                         groupElement.appendChild(titleElement);
-
-                         group.options.forEach((option, idx) => {
-                              const optionId = `${name}-${groupName}-${option.name.replace(/\s+/g, '-')}`;
-                              const priceText = option.price ?? "+₱0.00";
-
-                              const optionElement = document.createElement("div");
-                              optionElement.className = "customization-option";
-
-                              optionElement.innerHTML = `
+                                   optionElement.innerHTML = `
                          <input type="${group.type}" 
                               id="${optionId}" 
                               name="${groupName}" 
@@ -1290,62 +1399,86 @@
                          <span class="customization-price">${priceText}</span>
                     `;
 
-                              groupElement.appendChild(optionElement);
-                         });
+                                   groupElement.appendChild(optionElement);
+                              });
 
-                         optionsContainer.appendChild(groupElement);
+                              optionsContainer.appendChild(groupElement);
+                         }
+
+                         // Add event listeners to update price on change
+                         document.querySelectorAll('#customization-options input[type="radio"]').forEach(input => {
+                              input.addEventListener("change", updateTotalPrice);
+                         });
                     }
 
-                    // Add event listeners to update price on change
-                    document.querySelectorAll('#customization-options input[type="radio"]').forEach(input => {
-                         input.addEventListener("change", updateTotalPrice);
-                    });
+                    updateTotalPrice(); // Initial price
+                    document.getElementById("modal").style.display = "flex";
                }
 
-               updateTotalPrice(); // Initial price
-               document.getElementById("modal").style.display = "flex";
-          }
+               function closeModal() {
+                    document.getElementById("modal").style.display = "none";
+               }
 
-          function closeModal() {
-               document.getElementById("modal").style.display = "none";
-          }
+               function addToCart() {
+                    const item = coffeeData[currentItem];
+                    let customizations = {};
+                    let totalPrice = parseFloat(item.price.replace(/[₱,]/g, ""));
 
-          function addToCart() {
-               const item = coffeeData[currentItem];
-               let customizations = {};
-               let totalPrice = parseFloat(item.price.replace(/[₱,]/g, ""));
+                    if (item.customizations) {
+                         for (const [groupName, group] of Object.entries(item.customizations)) {
+                              const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
+                              if (selectedOption) {
+                                   const optionText = selectedOption.value;
+                                   const priceElement = selectedOption.closest('.customization-option').querySelector('.customization-price');
+                                   const optionPrice = priceElement ? parseFloat(priceElement.innerText.replace(/[₱+]/g, "")) : 0;
 
-               if (item.customizations) {
-                    for (const [groupName, group] of Object.entries(item.customizations)) {
-                         const selectedOption = document.querySelector(`input[name="${groupName}"]:checked`);
-                         if (selectedOption) {
-                              const optionText = selectedOption.value;
-                              const priceElement = selectedOption.closest('.customization-option').querySelector('.customization-price');
-                              const optionPrice = priceElement ? parseFloat(priceElement.innerText.replace(/[₱+]/g, "")) : 0;
+                                   totalPrice += optionPrice;
 
-                              totalPrice += optionPrice;
-
-                              customizations[groupName] = {
-                                   option: optionText,
-                                   price: `+₱${optionPrice.toFixed(2)}`
-                              };
+                                   customizations[groupName] = {
+                                        option: optionText,
+                                        price: `+₱${optionPrice.toFixed(2)}`
+                                   };
+                              }
                          }
                     }
+
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    cart.push({
+                         name: currentItem,
+                         price: `₱${totalPrice.toFixed(2)}`,
+                         img: item.img,
+                         customizations: Object.keys(customizations).length > 0 ? customizations : null
+                    });
+
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert(`${currentItem} added to cart!`);
+                    closeModal();
+
+                    // Add this to your script section
+                    document.addEventListener('DOMContentLoaded', function () {
+                         // Close modal when clicking outside content
+                         document.getElementById('modal').addEventListener('click', function (e) {
+                              if (e.target === this) {
+                                   closeModal();
+                              }
+                         });
+
+                         // Make sidebar headings clickable on mobile
+                         if (window.innerWidth <= 768) {
+                              document.querySelectorAll('.sidebar-heading').forEach(heading => {
+                                   heading.style.cursor = 'pointer';
+                                   heading.addEventListener('click', function () {
+                                        const ul = this.nextElementSibling;
+                                        ul.style.display = ul.style.display === 'none' ? 'flex' : 'none';
+                                   });
+
+                                   // Initially hide the lists on mobile
+                                   heading.nextElementSibling.style.display = 'none';
+                              });
+                         }
+                    });
                }
-
-               let cart = JSON.parse(localStorage.getItem("cart")) || [];
-               cart.push({
-                    name: currentItem,
-                    price: `₱${totalPrice.toFixed(2)}`,
-                    img: item.img,
-                    customizations: Object.keys(customizations).length > 0 ? customizations : null
-               });
-
-               localStorage.setItem("cart", JSON.stringify(cart));
-               alert(`${currentItem} added to cart!`);
-               closeModal();
-          }
-     </script>
+          </script>
 </body>
 
 </html>

@@ -6,9 +6,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Menu</title>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logo.png">
      <style>
           body {
-               font-family: Arial, Helvetica, sans-serif;
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
                background-color: #F7A8C4;
                margin: 0;
                padding: 0;
@@ -101,6 +102,10 @@
                padding: 20px;
           }
 
+          .main-content {
+               flex-grow: 1;
+          }
+
           h2 {
                font-family: 'Times New Roman', Times, serif;
                color: #ad175d;
@@ -133,10 +138,20 @@
                width: 100%;
                border-radius: 10px;
                transition: transform 0.3s;
+               height: 180px;
+               object-fit: contain;
+          }
+
+          .menu-item {
+               transition: transform 0.3s ease;
           }
 
           .menu-item:hover {
                transform: scale(1.05);
+          }
+
+          .menu-item img {
+               transition: transform 0.3s ease;
           }
 
           .menu-item:hover img {
@@ -148,23 +163,8 @@
                margin: 10px 0;
           }
 
-          .menu-item:hover {
-               transform: scale(1.05);
-          }
-
-          .content {
-               flex-grow: 1;
-               padding: 15px;
-               display: inline-block;
-               margin-left: 65px;
-               object-fit: contain;
-          }
-
           .content-section {
-               flex-grow: 1;
                padding: 20px;
-               display: inline-block;
-               margin-left: 300px;
           }
 
           .footer-container {
@@ -204,8 +204,15 @@
                display: flex;
                align-items: center;
                justify-content: center;
-               font-size: 1.2rem;
+               font-size: 1.3rem;
                text-decoration: none;
+               transition: all 0.3s ease;
+          }
+
+          .social-icon:hover {
+               transform: translateY(-5px);
+               background-color: whitesmoke;
+               color: #F7A8C4;
           }
 
           .main-footer {
@@ -218,6 +225,7 @@
 
           .company-info {
                text-align: left;
+               color: #555;
           }
 
           .company-name {
@@ -251,28 +259,136 @@
                display: block;
                color: #555;
                text-decoration: none;
-               margin: 5px 0;
+               margin: 10px 0;
                font-size: 0.9rem;
+               transition: all 0.3s ease;
           }
 
           .footer-link:hover {
-               text-decoration: underline;
+               color: #4a332f;
+               transform: translateX(-5px);
           }
 
+
           @media (max-width: 768px) {
-               .main-footer {
+
+               body {
+                    overflow-x: hidden;
+               }
+
+               .navbar {
+                    flex-direction: row;
+                    gap: 10px;
+                    padding: 10px;
+               }
+
+               .nav-button {
+                    margin: 5px 0;
+                    font-size: 14px;
+               }
+
+               .container {
                     flex-direction: column;
+                    align-items: center;
+               }
+
+               .sidebar {
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px;
+               }
+
+               .sidebar-heading {
+                    width: 100%;
+               }
+
+               .sidebar ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+               }
+
+               .sidebar ul li {
+                    display: inline-block;
+                    margin: 5px;
+               }
+
+               .sidebar ul li a {
+                    display: inline-block;
+                    padding: 6px 12px;
+               }
+
+               .menu {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                    padding: 10px;
+                    justify-items: center;
+               }
+
+               .menu-item {
+                    width: 90%;
+                    max-width: 300px;
+                    margin: 0 auto;
+                    padding: 15px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    border-radius: 16px;
+                    background-color: #ffe9f7;
                     text-align: center;
                }
 
-               .company-info {
+               .menu-item img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 160px;
+                    object-fit: contain;
+               }
+
+               .menu-item h3 {
+                    font-size: 16px;
+                    margin-top: 10px;
+               }
+
+               .menu-item:hover {
+                    transform: scale(1.05);
+               }
+
+               .menu-item:hover img {
+                    transform: scale(1.1);
+               }
+
+               h1,
+               h2 {
                     text-align: center;
-                    margin-bottom: 20px;
+               }
+
+               h2 {
+                    font-size: 28px;
+               }
+
+               .main-footer {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 20px;
                }
 
                .footer-links {
                     text-align: center;
-                    margin-top: 20px;
+                    margin-top: 15px;
+               }
+
+               .company-info {
+                    text-align: center;
+               }
+
+               .social-section {
+                    padding: 15px 10px;
+               }
+
+               .social-icons {
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    justify-content: center;
                }
           }
      </style>
@@ -281,7 +397,7 @@
 <body>
      <nav class="navbar">
           <a href="menu.html" class="nav-button"> Menu</a>
-          <a href="homepageproject.html" class="logo"><img src="logotus.png" alt="LOGO"
+          <a href="homepage.html" class="logo"><img src="logotus.png" alt="LOGO"
                     style="height: 65px; border-radius: 8px;"></a>
           <a href="cart.html" class="social-icon">
                <i class="fa fa-cart-shopping"></i>
@@ -303,107 +419,107 @@
                </ul>
           </div>
 
-          <div class="content">
-               <h1> FOOD & DRINKS </h1>
-               <h1> Lotus Brew Café's Best Sellers </h1>
-               <h2> Coffee </h2>
-               <div class="menu">
-                    <div class="menu-item">
-                         <img src="Caramel Macchiato.png" alt="Caramel Macchiato">
-                         <h3>Caramel Macchiato</h3>
+          <div class="main-content">
+               <div class="content">
+                    <h1> FOOD & DRINKS </h1>
+                    <h1> Lotus Brew Café's Best Sellers </h1>
+                    <h2> Coffee </h2>
+                    <div class="menu">
+                         <div class="menu-item">
+                              <img src="Caramel Macchiato.png" alt="Caramel Macchiato">
+                              <h3>Caramel Macchiato</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Buttercrème Latté.png" alt="Buttercrème Latté">
+                              <h3>Buttercrème Latté</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Spanish Latté.png" alt="Spanish Latte">
+                              <h3>Spanish Latté</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Café Mocha.png" alt="Café Mocha">
+                              <h3>Café Mocha</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Gula Melaka.png" alt="Gula Melaka">
+                              <h3>Gula Melaka </h3>
+                         </div>
                     </div>
-                    <div class="menu-item">
-                         <img src="Buttercrème Latté.png" alt="Buttercrème Latté">
-                         <h3>Buttercrème Latté</h3>
+               </div>
+
+               <div class="content-section">
+                    <h2> Frappé </h2>
+                    <div class="menu">
+                         <div class="menu-item">
+                              <img src="Berry Cheesecake.png" alt="Berry Cheesecake">
+                              <h3> Berry Cheesecake </h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Java Chip.png" alt="Java Chip">
+                              <h3>Java Chip </h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Matcha Craze.png" alt="Matcha Craze">
+                              <h3>Matcha Craze</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Espresso Crush.png" alt="Espresso Crush">
+                              <h3> Espresso Crush </h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Salted Caramel.png" alt="salted-caramel-frappe">
+                              <h3> Salted Caramel </h3>
+                         </div>
                     </div>
-                    <div class="menu-item">
-                         <img src="Spanish Latté.png" alt="Spanish Latte">
-                         <h3>Spanish Latté</h3>
+               </div>
+
+               <div class="content-section">
+                    <h2> Pastry </h2>
+                    <div class="menu">
+                         <div class="menu-item">
+                              <img src="Chocolate Cinnamon Roll.png" alt="Chocolate Cinnamon Roll">
+                              <h3> Chocolate Cinnamon Roll</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src=" Nutella Crossaint.png" alt="Nutella Croissant">
+                              <h3> Nutella Croissant </h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Pain-au-Chocolat.png"
+                                   alt="Pain-au-Chocolat">
+                              <h3> Pain-au-Chocolat</h3>
+                         </div>
                     </div>
-                    <div class="menu-item">
-                         <img src="Café Mocha.png" alt="Café Mocha">
-                         <h3>Café Mocha</h3>
-                    </div>
-                    <div class="menu-item">
-                         <img src="Gula Melaka.png" alt="Gula Melaka">
-                         <h3>Gula Melaka </h3>
+               </div>
+
+               <div class="content-section">
+                    <h2> Dessert </h2>
+                    <div class="menu">
+                         <div class="menu-item">
+                              <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Blueberry-Brioche-removebg-preview.png"
+                                   alt="Blueberry Brioche">
+                              <h3> Blueberry Brioche</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="Chocolate Cake.png" alt="Chocolate Cake">
+                              <h3>Chocolate Cake</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/chocolate-Cheesecake-removebg-preview.png"
+                                   alt="Chocolate Cheesecake">
+                              <h3>Chocolate Cheesecake</h3>
+                         </div>
+                         <div class="menu-item">
+                              <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Chocolate-Yakigashi-removebg-preview.png"
+                                   alt="Chocolate Yakigashi">
+                              <h3> Chocolate Yakigashi</h3>
+                         </div>
                     </div>
                </div>
           </div>
      </div>
 
-
-     <div class="content-section">
-          <h2> Frappé </h2>
-          <div class="menu">
-               <div class="menu-item">
-                    <img src="Berry Cheesecake.png" alt="Berry Cheesecake">
-                    <h3> Berry Cheesecake </h3>
-               </div>
-               <div class="menu-item">
-                    <img src="Java Chip.png" alt="Java Chip">
-                    <h3>Java Chip </h3>
-               </div>
-               <div class="menu-item">
-                    <img src="Matcha Craze.png" alt="Matcha Craze">
-                    <h3>Matcha Craze</h3>
-               </div>
-               <div class="menu-item">
-                    <img src="Espresso Crush.png" alt="Espresso Crush">
-                    <h3> Espresso Crush </h3>
-               </div>
-               <div class="menu-item">
-                    <img src="Salted Caramel.png" alt="salted-caramel-frappe">
-                    <h3> Salted Caramel </h3>
-               </div>
-          </div>
-     </div>
-     </div>
-
-     <div class="content-section">
-          <h2> Pastry </h2>
-          <div class="menu">
-               <div class="menu-item">
-                    <img src="Chocolate Cinnamon Roll.png" alt="Chocolate Cinnamon Roll">
-                    <h3> Chocolate Cinnamon Roll</h3>
-               </div>
-               <div class="menu-item">
-                    <img src=" Nutella Crossaint.png" alt="Nutella Croissant">
-                    <h3> Nutella Croissant </h3>
-               </div>
-               <div class="menu-item">
-                    <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Pain-au-Chocolat.png"
-                         alt="Pain-au-Chocolat">
-                    <h3> Pain-au-Chocolat</h3>
-               </div>
-          </div>
-     </div>
-     </div>
-
-     <div class="content-section">
-          <h2> Dessert </h2>
-          <div class="menu">
-               <div class="menu-item">
-                    <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Blueberry-Brioche-removebg-preview.png"
-                         alt="Blueberry Brioche">
-                    <h3> Blueberry Brioche</h3>
-               </div>
-               <div class="menu-item">
-                    <img src="Chocolate Cake.png" alt="Chocolate Cake">
-                    <h3>Chocolate Cake</h3>
-               </div>
-               <div class="menu-item">
-                    <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/chocolate-Cheesecake-removebg-preview.png"
-                         alt="Chocolate Cheesecake">
-                    <h3>Chocolate Cheesecake</h3>
-               </div>
-               <div class="menu-item">
-                    <img src="https://zuscoffee.ph/wp-content/uploads/2023/10/Chocolate-Yakigashi-removebg-preview.png"
-                         alt="Chocolate Yakigashi">
-                    <h3> Chocolate Yakigashi</h3>
-               </div>
-          </div>
-     </div>
      <div class="footer-container">
           <div class="social-section">
                <h3 class="social-title">Follow us on</h3>
@@ -421,12 +537,16 @@
                <div class="company-info">
                     <div class="company-name">LOTUS COFFEE PHILIPPINES INC.</div>
                     <div class="company-details">Company registration no: 635-381-780-00000</div>
+                    <div class="company-info">Recto, Manila</div>
+                    <div class="company-info">Email: lotusbrewcafe@gmail.com</div>
                     <div class="company-copyright">COPYRIGHT 2025 © LOTUS COFFEE</div>
                </div>
                <div class="footer-links">
                     <a href="#" class="footer-link">Privacy Policy</a>
                     <a href="#" class="footer-link">Terms & Conditions</a>
+                    <a href="#" class="footer-link">Customer Support</a>
                     <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">FAQS</a>
                </div>
           </div>
      </div>

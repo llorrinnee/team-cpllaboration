@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Track Order</title>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="logotus.png">
+     <style>
+          body {
+               font-family: 'Poppins', sans-serif;
+               line-height: 1.6;
+               padding: 20px;
+               color: #333;
+               background-color: #F7A8C4;
+          }
+
+          h2,
+          h3 {
+               color: palevioletrwed;
+          }
+
+          h1 {
+               color: white;
+               text-align: center;
+               border-bottom: 2px solid #6F4E37;
+               padding-bottom: 10px;
+               margin-bottom: 20px;
+          }
+
+          .container {
+               max-width: 800px;
+               margin: 0 auto;
+          }
+
+          .tracking-section {
+               background-color: white;
+               padding: 20px;
+               border-radius: 8px;
+               margin: 15px 0;
+               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+
+          .order-search {
+               display: flex;
+               justify-content: center;
+               margin-bottom: 20px;
+          }
+
+          .order-search input {
+               padding: 10px;
+               width: 70%;
+               border: 1px solid #ddd;
+               border-radius: 5px 0 0 5px;
+               font-size: 16px;
+          }
+
+          .order-search button {
+               padding: 10px 15px;
+               background-color: palevioletred;
+               color: white;
+               border: none;
+               border-radius: 0 5px 5px 0;
+               cursor: pointer;
+               font-size: 16px;
+          }
+
+          .order-search button:hover {
+               background-color: #d8547e;
+          }
+
+          .order-details {
+               display: none;
+          }
+
+          .order-header {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               margin-bottom: 20px;
+          }
+
+          .order-number {
+               font-size: 1.2em;
+               color: palevioletred;
+               font-weight: bold;
+          }
+
+          .order-date {
+               color: #666;
+          }
+
+          .tracking-steps {
+               display: flex;
+               justify-content: space-between;
+               margin: 30px 0;
+               position: relative;
+          }
+
+          .tracking-steps:before {
+               content: '';
+               position: absolute;
+               top: 15px;
+               left: 0;
+               right: 0;
+               height: 4px;
+               background-color: #eee;
+               z-index: 1;
+          }
+
+          .tracking-step {
+               position: relative;
+               z-index: 2;
+               width: 25%;
+               text-align: center;
+          }
+
+          .step-icon {
+               width: 30px;
+               height: 30px;
+               border-radius: 50%;
+               background-color: #eee;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               margin: 0 auto 10px;
+               border: 2px solid #eee;
+          }
+
+          .step-icon.active {
+               background-color: palevioletred;
+               color: white;
+               border-color: palevioletred;
+          }
+
+          .step-icon.completed {
+               background-color: #4CAF50;
+               color: white;
+               border-color: #4CAF50;
+          }
+
+          .step-label {
+               font-size: 0.9em;
+               font-weight: 500;
+          }
+
+          .step-time {
+               font-size: 0.8em;
+               color: #666;
+               margin-top: 5px;
+          }
+
+          .order-items {
+               margin-top: 20px;
+          }
+
+          .order-item {
+               display: flex;
+               justify-content: space-between;
+               padding: 8px 0;
+               border-bottom: 1px solid #eee;
+          }
+
+          .order-summary {
+               margin-top: 20px;
+          }
+
+          .summary-row {
+               display: flex;
+               justify-content: space-between;
+               padding: 5px 0;
+          }
+
+          .total {
+               font-weight: bold;
+               font-size: 1.1em;
+               color: palevioletred;
+               padding-top: 5px;
+               margin-top: 5px;
+               border-top: 1px solid #eee;
+          }
+
+          .delivery-info {
+               margin-top: 20px;
+               padding: 15px;
+               background-color: #f9f9f9;
+               border-radius: 5px;
+               border-left: 4px solid palevioletred;
+          }
+
+          .estimated-time {
+               text-align: center;
+               font-size: 1.2em;
+               margin: 20px 0;
+               padding: 15px;
+               background-color: #fff6f9;
+               border-radius: 5px;
+               border-left: 4px solid #6F4E37;
+          }
+
+          .no-order-found {
+               text-align: center;
+               padding: 20px;
+               color: #666;
+               display: none;
+          }
+
+          .back-link {
+               display: inline-block;
+               margin-top: 15px;
+               color: #6F4E37;
+               text-decoration: none;
+          }
+
+          .back-link:hover {
+               text-decoration: underline;
+          }
+
+          .loader {
+               text-align: center;
+               padding: 20px;
+               display: none;
+          }
+
+          .loader:after {
+               content: " ";
+               display: inline-block;
+               width: 40px;
+               height: 40px;
+               margin: 8px;
+               border-radius: 50%;
+               border: 6px solid palevioletred;
+               border-color: palevioletred transparent palevioletred transparent;
+               animation: loader 1.2s linear infinite;
+          }
+
+          .main-footer {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               padding: 20px 10%;
+               width: 100%;
+               box-sizing: border-box;
+               text-align: center;
+          }
+
+          .footer {
+               text-align: center;
+          }
+
+          .copyright p {
+               font-size: 14px;
+               color: #555;
+               text-align: center;
+          }
+
+          @keyframes loader {
+               0% {
+                    transform: rotate(0deg);
+               }
+
+               100% {
+                    transform: rotate(360deg);
+               }
+          }
+
+          @media (max-width: 576px) {
+               body {
+                    padding: 10px;
+               }
+
+               h1 {
+                    font-size: 1.8em;
+               }
+
+               .order-search {
+                    flex-direction: column;
+                    align-items: center;
+               }
+
+               .order-search input {
+                    width: 100%;
+                    border-radius: 5px;
+                    margin-bottom: 10px;
+               }
+
+               .order-search button {
+                    width: 100%;
+                    border-radius: 5px;
+               }
+
+               .tracking-steps:before {
+                    top: 50%;
+                    height: 2px;
+               }
+
+               .tracking-step {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+               }
+
+               .step-label {
+                    font-size: 0.7em;
+                    margin-top: 5px;
+               }
+
+               .step-time {
+                    font-size: 0.6em;
+               }
+
+               .order-item,
+               .summary-row {
+                    font-size: 0.9em;
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <div class="container">
+          <h1>Track Your Order</h1>
+
+          <div class="tracking-section">
+               <div class="order-search">
+                    <input type="text" id="orderNumberInput"
+                         placeholder="Enter your order number (e.g., LB-250519-1234)">
+                    <button id="trackButton">Track</button>
+               </div>
+
+               <div id="loader" class="loader"></div>
+               <div id="noOrderFound" class="no-order-found">
+                    <p>No order found with this number. Please check and try again.</p>
+               </div>
+
+               <div id="orderDetails" class="order-details">
+                    <div class="order-header">
+                         <div class="order-number">Order #: <span id="displayOrderNumber">--</span></div>
+                         <div class="order-date">Placed on: <span id="orderDate">--</span></div>
+                    </div>
+
+                    <div class="tracking-steps">
+                         <div class="tracking-step">
+                              <div class="step-icon" id="step1">1</div>
+                              <div class="step-label">Order Confirmed</div>
+                              <div class="step-time" id="time1">--</div>
+                         </div>
+                         <div class="tracking-step">
+                              <div class="step-icon" id="step2">2</div>
+                              <div class="step-label" id="step2Label">Preparing</div>
+                              <div class="step-time" id="time2">--</div>
+                         </div>
+                         <div class="tracking-step">
+                              <div class="step-icon" id="step3">3</div>
+                              <div class="step-label" id="step3Label">Ready for Pickup</div>
+                              <div class="step-time" id="time3">--</div>
+                         </div>
+                         <div class="tracking-step">
+                              <div class="step-icon" id="step4">4</div>
+                              <div class="step-label">Completed</div>
+                              <div class="step-time" id="time4">--</div>
+                         </div>
+                    </div>
+
+                    <div class="estimated-time">
+                         <p>Estimated completion time: <span id="estimatedTime">--</span></p>
+                    </div>
+
+                    <div id="deliveryInfo" class="delivery-info" style="display: none;">
+                         <h3>Delivery Information</h3>
+                         <p><strong>Delivery Address:</strong> <span id="deliveryAddress">--</span></p>
+                         <p><strong>Instructions:</strong> <span id="deliveryInstructions">--</span></p>
+                    </div>
+
+                    <div id="pickupInfo" class="delivery-info" style="display: none;">
+                         <h3>Pickup Information</h3>
+                         <p><strong>Pickup Time:</strong> <span id="pickupTime">--</span></p>
+                         <p><strong>Location:</strong> Lotus Brew Cafe, 123 Flower Street</p>
+                    </div>
+
+                    <div class="order-items">
+                         <h3>Order Items</h3>
+                         <div id="orderItemsList"></div>
+                    </div>
+
+                    <div class="order-summary">
+                         <h3>Order Summary</h3>
+                         <div class="summary-row">
+                              <span>Subtotal:</span>
+                              <span id="subtotal">--</span>
+                         </div>
+                         <div class="summary-row" id="shippingRow" style="display: none;">
+                              <span>Shipping Fee:</span>
+                              <span id="shippingFee">--</span>
+                         </div>
+                         <div class="summary-row total">
+                              <span>Total:</span>
+                              <span id="totalAmount">--</span>
+                         </div>
+                         <div class="summary-row">
+                              <span>Payment Method:</span>
+                              <span id="paymentMethod">--</span>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <a href="homepage.html" class="back-link">← Back to Home</a>
+     </div>
+     <footer class="main-footer">
+          <div class="footer">
+               <p class="copyright">© 2025 LOTUS COFFEE. All Rights Reserved.</p>
+          </div>
+     </footer>
+     <script>
+          document.addEventListener('DOMContentLoaded', function () {
+               const urlParams = new URLSearchParams(window.location.search);
+               const orderParam = urlParams.get('order');
+
+               if (orderParam) {
+                    document.getElementById('orderNumberInput').value = orderParam;
+                    trackOrder(orderParam);
+               }
+
+               document.getElementById('trackButton').addEventListener('click', function () {
+                    const orderNumber = document.getElementById('orderNumberInput').value.trim();
+                    if (orderNumber) {
+                         trackOrder(orderNumber);
+                    } else {
+                         alert('Please enter an order number');
+                    }
+               });
+
+               document.getElementById('orderNumberInput').addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                         const orderNumber = document.getElementById('orderNumberInput').value.trim();
+                         if (orderNumber) {
+                              trackOrder(orderNumber);
+                         } else {
+                              alert('Please enter an order number');
+                         }
+                    }
+               });
+          });
+
+          function trackOrder(orderNumber) {
+               // show loader
+               document.getElementById('loader').style.display = 'block';
+               document.getElementById('orderDetails').style.display = 'none';
+               document.getElementById('noOrderFound').style.display = 'none';
+
+               // simulate API call delay
+               setTimeout(() => {
+                    // get order from localStorage
+                    const storedOrder = localStorage.getItem('orderDetails');
+                    let order = null;
+
+                    if (storedOrder) {
+                         order = JSON.parse(storedOrder);
+                    }
+
+                    // hide loader
+                    document.getElementById('loader').style.display = 'none';
+
+                    // check if order exists and matches the order number
+                    if (order && order.orderNumber === orderNumber) {
+                         displayOrderDetails(order);
+                    } else {
+                         // show no order found message
+                         document.getElementById('noOrderFound').style.display = 'block';
+                    }
+               }, 1000);
+          }
+
+          function displayOrderDetails(order) {
+               // show order details section
+               document.getElementById('orderDetails').style.display = 'block';
+
+               // spdate order header info
+               document.getElementById('displayOrderNumber').textContent = order.orderNumber;
+
+               const orderDate = new Date(order.orderDate);
+               document.getElementById('orderDate').textContent = formatDate(orderDate);
+
+               // update tracking steps based on order status
+               updateTrackingSteps(order.status, orderDate);
+
+               // update order items
+               const orderItemsList = document.getElementById('orderItemsList');
+               orderItemsList.innerHTML = '';
+
+               order.items.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'order-item';
+                    const price = parseFloat(item.price.replace(/[^\d.-]/g, '')) || 0;
+                    const quantity = item.quantity || 1;
+                    const total = price * quantity;
+
+                    itemDiv.innerHTML = `
+                    <span>${item.name} × ${quantity}</span>
+                    <span>₱${total.toFixed(2)}</span>
+                `;
+                    orderItemsList.appendChild(itemDiv);
+               });
+
+               // update order summary
+               document.getElementById('subtotal').textContent = `₱${order.subtotal.toFixed(2)}`;
+               document.getElementById('totalAmount').textContent = `₱${order.total.toFixed(2)}`;
+               document.getElementById('paymentMethod').textContent = order.paymentMethod;
+
+               // show or hide shipping section based on order type
+               if (order.type === 'delivery') {
+                    document.getElementById('shippingRow').style.display = 'flex';
+                    document.getElementById('shippingFee').textContent = `₱${order.shippingFee.toFixed(2)}`;
+
+                    // update delivery info
+                    document.getElementById('deliveryInfo').style.display = 'block';
+                    document.getElementById('pickupInfo').style.display = 'none';
+                    document.getElementById('deliveryAddress').textContent = order.address;
+                    document.getElementById('deliveryInstructions').textContent = order.instructions || 'None provided';
+
+                    // update step labels for delivery
+                    document.getElementById('step2Label').textContent = 'Preparing';
+                    document.getElementById('step3Label').textContent = 'Out for Delivery';
+               } else {
+                    document.getElementById('shippingRow').style.display = 'none';
+
+                    // update pickup info
+                    document.getElementById('pickupInfo').style.display = 'block';
+                    document.getElementById('deliveryInfo').style.display = 'none';
+                    document.getElementById('pickupTime').textContent = formatTimeFromInput(order.pickupTime);
+
+                    // update step labels for pickup
+                    document.getElementById('step2Label').textContent = 'Preparing';
+                    document.getElementById('step3Label').textContent = 'Ready for Pickup';
+               }
+          }
+
+          function updateTrackingSteps(status, orderDate) {
+               // reset all steps
+               for (let i = 1; i <= 4; i++) {
+                    document.getElementById(`step${i}`).className = 'step-icon';
+                    document.getElementById(`time${i}`).textContent = '--';
+               }
+
+               const now = new Date();
+               let estimatedCompletionTime;
+
+               // set confirmed step
+               document.getElementById('step1').className = 'step-icon completed';
+               document.getElementById('time1').textContent = formatTime(orderDate);
+
+               // simulate different statuses for demo purposes
+               switch (status) {
+                    case 'confirmed':
+                         // only first step completed
+                         estimatedCompletionTime = new Date(orderDate);
+                         estimatedCompletionTime.setMinutes(estimatedCompletionTime.getMinutes() + 30);
+                         document.getElementById('step2').className = 'step-icon active';
+                         break;
+
+                    case 'preparing':
+                         // first step completed, second active
+                         document.getElementById('step1').className = 'step-icon completed';
+                         document.getElementById('step2').className = 'step-icon active';
+
+                         const preparingTime = new Date(orderDate);
+                         preparingTime.setMinutes(preparingTime.getMinutes() + 5);
+                         document.getElementById('time2').textContent = formatTime(preparingTime);
+
+                         estimatedCompletionTime = new Date(orderDate);
+                         estimatedCompletionTime.setMinutes(estimatedCompletionTime.getMinutes() + 20);
+                         break;
+
+                    case 'ready':
+                         // first two steps completed, third active
+                         document.getElementById('step1').className = 'step-icon completed';
+                         document.getElementById('step2').className = 'step-icon completed';
+                         document.getElementById('step3').className = 'step-icon active';
+
+                         const step2Time = new Date(orderDate);
+                         step2Time.setMinutes(step2Time.getMinutes() + 5);
+                         document.getElementById('time2').textContent = formatTime(step2Time);
+
+                         const readyTime = new Date(orderDate);
+                         readyTime.setMinutes(readyTime.getMinutes() + 15);
+                         document.getElementById('time3').textContent = formatTime(readyTime);
+
+                         estimatedCompletionTime = new Date(orderDate);
+                         estimatedCompletionTime.setMinutes(estimatedCompletionTime.getMinutes() + 5);
+                         break;
+
+                    case 'completed':
+                         // all steps completed
+                         for (let i = 1; i <= 4; i++) {
+                              document.getElementById(`step${i}`).className = 'step-icon completed';
+
+                              const stepTime = new Date(orderDate);
+                              stepTime.setMinutes(stepTime.getMinutes() + (i * 10));
+                              document.getElementById(`time${i}`).textContent = formatTime(stepTime);
+                         }
+
+                         estimatedCompletionTime = 'Order Completed';
+                         break;
+
+                    default:
+                         // default to confirmed status
+                         estimatedCompletionTime = new Date(orderDate);
+                         estimatedCompletionTime.setMinutes(estimatedCompletionTime.getMinutes() + 30);
+                         document.getElementById('step2').className = 'step-icon active';
+               }
+
+               // update estimated time
+               if (typeof estimatedCompletionTime === 'string') {
+                    document.getElementById('estimatedTime').textContent = estimatedCompletionTime;
+               } else {
+                    document.getElementById('estimatedTime').textContent = formatTime(estimatedCompletionTime);
+               }
+          }
+
+          function formatDate(date) {
+               const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+               return date.toLocaleDateString('en-US', options);
+          }
+
+          function formatTime(date) {
+               const options = { hour: '2-digit', minute: '2-digit' };
+               return date.toLocaleTimeString('en-US', options);
+          }
+
+          function formatTimeFromInput(timeInput) {
+               if (!timeInput) return 'Not specified';
+
+               try {
+                    // handle time input format (HH:MM)
+                    const [hours, minutes] = timeInput.split(':');
+                    const date = new Date();
+                    date.setHours(parseInt(hours, 10));
+                    date.setMinutes(parseInt(minutes, 10));
+
+                    return formatTime(date);
+               } catch (e) {
+                    return timeInput; // Return as is if parsing fails
+               }
+          }
+
+          // simulate order status changes for demo purposes
+          function simulateOrderProgress() {
+               const order = JSON.parse(localStorage.getItem('orderDetails'));
+               if (!order) return;
+
+               const orderTime = new Date(order.orderDate);
+               const now = new Date();
+               const minutesPassed = Math.floor((now - orderTime) / (1000 * 60));
+
+               if (minutesPassed < 5) {
+                    order.status = 'confirmed';
+               } else if (minutesPassed < 15) {
+                    order.status = 'preparing';
+               } else if (minutesPassed < 25) {
+                    order.status = 'ready';
+               } else {
+                    order.status = 'completed';
+               }
+
+               localStorage.setItem('orderDetails', JSON.stringify(order));
+
+               // If we're currently viewing this order, update the display
+               const currentOrderNumber = document.getElementById('displayOrderNumber').textContent;
+               if (currentOrderNumber === order.orderNumber) {
+                    displayOrderDetails(order);
+               }
+          }
+
+          // simulate order updates every 30 seconds
+          setInterval(simulateOrderProgress, 30000);
+     </script>
+</body>
+
+</html>
